@@ -7,6 +7,11 @@ class AssetsData {
   static const eliteLogoNoBg = '${pathImage}elite_logo_no_bg.png';
 //pool
   static const pool = '${pathImage}pool/pool.jpg';
+//Icons
+  static const call = '${pathImage}icons/call.png';
+  static const whatsApp = '${pathImage}icons/whatsapp.png';
+  static const facebook = '${pathImage}icons/facebook.png';
+  static const instagram = '${pathImage}icons/instagram.png';
 
   //-------------Icons----------//
   static const addIcon = '${pathIcon}add_icon.png';
