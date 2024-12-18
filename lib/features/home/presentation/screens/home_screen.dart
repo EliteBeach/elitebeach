@@ -27,6 +27,7 @@ class HomeScreen extends StatelessWidget {
             previousState != currentState,
         builder: (_, localeState) {
           return MaterialApp(
+            theme: ThemeData(fontFamily: 'EduAUVICWANTPre'),
             locale: localeState.locale,
             onGenerateRoute: AppRoutes.onGenerateRoute,
             supportedLocales: AppLocalizationsSetup.supportedLocales,

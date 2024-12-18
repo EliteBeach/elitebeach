@@ -32,7 +32,7 @@ class BottomNavMoreItem extends StatelessWidget {
             fontSize: context.screenWidth * .028,
             color: Colors.black87,
             fontWeight: FontWeight.bold,
-            fontFamily: 'EduAUVICWANTPre',
+            //  fontFamily: 'EduAUVICWANTPre',
           ),
         ),
         onPressed: () {},

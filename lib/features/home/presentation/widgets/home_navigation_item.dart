@@ -21,7 +21,7 @@ class HomeNavigationItem extends StatelessWidget {
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
-          fontFamily: 'EduAUVICWANTPre',
+          //  fontFamily: 'EduAUVICWANTPre',
           fontSize: context.screenWidth * .01,
         ),
       ),

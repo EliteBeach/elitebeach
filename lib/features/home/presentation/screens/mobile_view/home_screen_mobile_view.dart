@@ -32,6 +32,7 @@ class HomeScreenMobileView extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                       horizontal: context.screenWidth * .05),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,11 +65,13 @@ class HomeScreenMobileView extends StatelessWidget {
                                   context.locale
                                       .translate('elite_beach_res&hotel')!,
                                   style: TextStyle(
-                                    letterSpacing: context.screenWidth * .005,
+                                    letterSpacing: context.locale.isEnLocale
+                                        ? context.screenWidth * .005
+                                        : null,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'EduAUVICWANTPre',
-                                    fontSize: context.screenWidth * .035,
+                                    //   fontFamily: 'EduAUVICWANTPre',
+                                    fontSize: context.screenWidth * .03,
                                   ),
                                 ),
                               )
@@ -89,7 +92,9 @@ class HomeScreenMobileView extends StatelessWidget {
                                 padding:
                                     EdgeInsets.all(context.screenHeight * .01),
                                 decoration: BoxDecoration(
-                                    color: Colors.grey,
+                                    color: Colors.transparent.withOpacity(
+                                      .07,
+                                    ),
                                     borderRadius: BorderRadius.circular(20)),
                                 child: Column(
                                   children: [
@@ -99,12 +104,14 @@ class HomeScreenMobileView extends StatelessWidget {
                                     ),
                                     Text(
                                       context.locale.isEnLocale ? 'ع' : 'En',
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                        letterSpacing: 4,
+                                      style: TextStyle(
+                                        fontSize: context.screenWidth * .025,
+                                        letterSpacing: context.locale.isEnLocale
+                                            ? context.screenWidth * .005
+                                            : null,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold,
-                                        fontFamily: 'EduAUVICWANTPre',
+                                        //  fontFamily: 'EduAUVICWANTPre',
                                       ),
                                     ),
                                   ],
@@ -114,7 +121,7 @@ class HomeScreenMobileView extends StatelessWidget {
                           )
                         ],
                       ),
-                      const Spacer(),
+                      // const Spacer(),
                       FadeIn(
                         duration: const Duration(seconds: 3),
                         child: Column(
@@ -123,11 +130,13 @@ class HomeScreenMobileView extends StatelessWidget {
                             Text(
                               context.locale.translate('discover_with_us')!,
                               style: TextStyle(
-                                fontSize: context.screenWidth * .02,
-                                letterSpacing: 4,
+                                fontSize: context.screenWidth * .025,
+                                letterSpacing: context.locale.isEnLocale
+                                    ? context.screenWidth * .005
+                                    : null,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'EduAUVICWANTPre',
+                                //        fontFamily: 'EduAUVICWANTPre',
                               ),
                             ),
                             const SizedBox(
@@ -138,11 +147,13 @@ class HomeScreenMobileView extends StatelessWidget {
                                 return Text(
                                   context.locale.translate('welcome_txt')!,
                                   style: TextStyle(
-                                    letterSpacing: 4,
+                                    letterSpacing: context.locale.isEnLocale
+                                        ? context.screenWidth * .005
+                                        : null,
                                     fontSize: context.screenWidth * .03,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'EduAUVICWANTPre',
+                                    //   fontFamily: 'EduAUVICWANTPre',
                                   ),
                                 );
                               },
@@ -150,7 +161,7 @@ class HomeScreenMobileView extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const Spacer(),
+                      //     const Spacer(),
                       SizedBox(
                         height: context.screenHeight * .05,
                       ),

@@ -143,8 +143,13 @@ class HomeScreenWebView extends StatelessWidget {
                               padding:
                                   EdgeInsets.all(context.screenHeight * .01),
                               decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(20)),
+                                color: Colors.transparent.withOpacity(
+                                  .07,
+                                ),
+                                borderRadius: BorderRadius.circular(
+                                  20,
+                                ),
+                              ),
                               child: Column(
                                 children: [
                                   const Icon(Icons.language_rounded),
@@ -153,12 +158,14 @@ class HomeScreenWebView extends StatelessWidget {
                                   ),
                                   Text(
                                     locale.isEnLocale ? 'ع' : 'En',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 16,
-                                      letterSpacing: 4,
+                                      letterSpacing: context.locale.isEnLocale
+                                          ? context.screenWidth * .005
+                                          : null,
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'EduAUVICWANTPre',
+                                      //    fontFamily: 'EduAUVICWANTPre',
                                     ),
                                   ),
                                 ],
@@ -238,10 +245,12 @@ class HomeScreenWebView extends StatelessWidget {
                                   context.locale.translate('discover_with_us')!,
                                   style: TextStyle(
                                     fontSize: context.screenWidth * .02,
-                                    letterSpacing: 4,
+                                    letterSpacing: context.locale.isEnLocale
+                                        ? context.screenWidth * .005
+                                        : null,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
-                                    fontFamily: 'EduAUVICWANTPre',
+                                    // fontFamily: 'EduAUVICWANTPre',
                                   ),
                                 ),
                                 const SizedBox(
@@ -252,11 +261,13 @@ class HomeScreenWebView extends StatelessWidget {
                                     return Text(
                                       context.locale.translate('welcome_txt')!,
                                       style: TextStyle(
-                                        letterSpacing: 4,
+                                        letterSpacing: context.locale.isEnLocale
+                                            ? context.screenWidth * .005
+                                            : null,
                                         fontSize: context.screenWidth * .03,
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
-                                        fontFamily: 'EduAUVICWANTPre',
+                                        //  fontFamily: 'EduAUVICWANTPre',
                                       ),
                                     );
                                   },

@@ -23,13 +23,13 @@ class BottomNavBar extends StatelessWidget {
         fontSize: context.screenWidth * .028,
         color: Colors.white,
         fontWeight: FontWeight.bold,
-        fontFamily: 'EduAUVICWANTPre',
+        //   fontFamily: 'EduAUVICWANTPre',
       ),
       unselectedLabelStyle: TextStyle(
         fontSize: context.screenWidth * .028,
         color: Colors.white,
         fontWeight: FontWeight.bold,
-        fontFamily: 'EduAUVICWANTPre',
+        //  fontFamily: 'EduAUVICWANTPre',
       ),
       elevation: 0,
       items: [
