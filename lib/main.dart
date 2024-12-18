@@ -13,6 +13,7 @@ void main() async {
 
   Bloc.observer = SimpleBlocObserver();
   await di.init();
+
   // await Hive.initFlutter();
 
   // Hive.registerAdapter(LoginEntityAdapter());

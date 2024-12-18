@@ -1,3 +1,4 @@
+import 'package:elite_beach/core/utils/helper.dart';
 import 'package:flutter/material.dart';
 
 class HomeNavigationItem extends StatelessWidget {
@@ -13,10 +14,12 @@ class HomeNavigationItem extends StatelessWidget {
     return InkWell(
       child: Text(
         itemName,
-        style: const TextStyle(
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
           fontFamily: 'EduAUVICWANTPre',
+          fontSize: context.screenWidth * .01,
         ),
       ),
       onTap: () {

@@ -2,13 +2,14 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../features/language/data/datasources/language_local_data_source.dart';
-import '../../../features/language/data/datasources/language_local_data_source_impl.dart';
-import '../../../features/language/data/repositories/language_repository_impl.dart';
-import '../../../features/language/domain/repositories/language_repository.dart';
-import '../../../features/language/domain/usecases/change_locale_use_case.dart';
-import '../../../features/language/domain/usecases/get_saved_lang_use_case.dart';
-import '../../../features/language/presentation/manger/locale_cubit/locale_cubit.dart';
+import '../../../features/home/presentation/manager/cubit/bottom_nav_cubit_cubit.dart';
+import '../../../features/splash/data/datasources/language_local_data_source.dart';
+import '../../../features/splash/data/datasources/language_local_data_source_impl.dart';
+import '../../../features/splash/data/repositories/language_repository_impl.dart';
+import '../../../features/splash/domain/repositories/language_repository.dart';
+import '../../../features/splash/domain/usecases/change_locale_use_case.dart';
+import '../../../features/splash/domain/usecases/get_saved_lang_use_case.dart';
+import '../../../features/splash/presentation/manger/locale_cubit/locale_cubit.dart';
 import '../api_service.dart';
 import '../network/network_request.dart';
 
@@ -36,6 +37,9 @@ Future<void> init() async {
   getIt.registerLazySingleton<LanguageLocalDataSource>(
     () => LanguageLocalDataSourceImpl(sharedPreferences: getIt()),
   );
+
+  //cubits
+  getIt.registerFactory<BottomNavCubit>(() => BottomNavCubit());
   //CancelInvitation
   // getIt.registerFactory<CancelInvitationCubit>(
   //     () => CancelInvitationCubit(getIt.call()));
