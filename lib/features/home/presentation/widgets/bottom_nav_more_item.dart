@@ -9,7 +9,9 @@ class BottomNavMoreItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.topRight,
+      alignment: context.locale.isEnLocale
+          ? Alignment.bottomRight
+          : Alignment.bottomLeft,
       padding: EdgeInsets.all(
         context.screenWidth * .02,
       ),
@@ -19,6 +21,10 @@ class BottomNavMoreItem extends StatelessWidget {
         ),
       ),
       child: TextButton.icon(
+        style: const ButtonStyle(
+            overlayColor: WidgetStatePropertyAll(
+          Colors.white,
+        )),
         iconAlignment: IconAlignment.end,
         label: Text(
           iconName,

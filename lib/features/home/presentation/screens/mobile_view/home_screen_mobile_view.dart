@@ -40,7 +40,7 @@ class HomeScreenMobileView extends StatelessWidget {
                             AssetsData.eliteLogoNoBg,
                             width: context.screenWidth * .15,
                             height: context.screenHeight * .15,
-                            //    color: Colors.white,
+                            color: Colors.white,
                           ),
                           const Spacer(),
                           Column(
@@ -48,6 +48,7 @@ class HomeScreenMobileView extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Container(
+                                alignment: Alignment.center,
                                 padding: const EdgeInsets.only(
                                   bottom: 5, // Space between underline and text
                                 ),
@@ -114,11 +115,46 @@ class HomeScreenMobileView extends StatelessWidget {
                         ],
                       ),
                       const Spacer(),
+                      FadeIn(
+                        duration: const Duration(seconds: 3),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              context.locale.translate('discover_with_us')!,
+                              style: TextStyle(
+                                fontSize: context.screenWidth * .02,
+                                letterSpacing: 4,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'EduAUVICWANTPre',
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            BlocBuilder<LocaleCubit, LocaleState>(
+                              builder: (context, state) {
+                                return Text(
+                                  context.locale.translate('welcome_txt')!,
+                                  style: TextStyle(
+                                    letterSpacing: 4,
+                                    fontSize: context.screenWidth * .03,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'EduAUVICWANTPre',
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Spacer(),
                       SizedBox(
                         height: context.screenHeight * .05,
                       ),
                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           BlocBuilder<BottomNavCubit, BottomNavCubitState>(
                             builder: (context, state) {

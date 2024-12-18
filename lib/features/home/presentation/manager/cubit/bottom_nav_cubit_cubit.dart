@@ -7,6 +7,7 @@ class BottomNavCubit extends Cubit<BottomNavCubitState> {
   BottomNavCubit() : super(BottomNavCubitActivate());
   bool isActive = false;
   void showMore() {
+    emit(BottomNavCubitInitial());
     if (isActive) {
       isActive = false;
       emit(BottomNavCubitInitial());

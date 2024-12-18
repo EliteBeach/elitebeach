@@ -51,88 +51,82 @@ class HomeScreenWebView extends StatelessWidget {
                           width: context.screenWidth * .03,
                         ),
                         //Tabs
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          // mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Row(
-                              // mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                HomeNavigationItem(
-                                  itemName: context.locale.translate('home')!,
-                                  tapHandler: () {},
-                                ),
-                                SizedBox(
-                                  width: context.screenWidth * .03,
-                                ),
-                                HomeNavigationItem(
-                                  itemName: context.locale.translate('about')!,
-                                  tapHandler: () {},
-                                ),
-                                SizedBox(
-                                  width: context.screenWidth * .03,
-                                ),
-                                HomeNavigationItem(
-                                  itemName:
-                                      context.locale.translate('gallery')!,
-                                  tapHandler: () {},
-                                ),
-                                SizedBox(
-                                  width: context.screenWidth * .03,
-                                ),
-                                HomeNavigationItem(
-                                  itemName: context.locale.translate('units')!,
-                                  tapHandler: () {},
-                                ),
-                                SizedBox(
-                                  width: context.screenWidth * .03,
-                                ),
-                                HomeNavigationItem(
-                                  itemName: context.locale.translate('offers')!,
-                                  tapHandler: () {},
-                                ),
-                                SizedBox(
-                                  width: context.screenWidth * .03,
-                                ),
-                                HomeNavigationItem(
-                                  itemName:
-                                      context.locale.translate('rest&bar')!,
-                                  tapHandler: () {},
-                                ),
-                                SizedBox(
-                                  width: context.screenWidth * .03,
-                                ),
-                                HomeNavigationItem(
-                                  itemName:
-                                      context.locale.translate('facilities')!,
-                                  tapHandler: () {},
-                                ),
-                                SizedBox(
-                                  width: context.screenWidth * .03,
-                                ),
-                                HomeNavigationItem(
-                                  itemName: context.locale
-                                      .translate('weeding&events')!,
-                                  tapHandler: () {},
-                                ),
-                              ],
+                        Container(
+                          alignment: Alignment.center,
+                          padding: EdgeInsets.only(
+                            bottom: context.screenHeight *
+                                .015, // Space between underline and text
+                          ),
+                          decoration: const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Colors.white,
+                                width: 1.0, // Underline thickness
+                              ),
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            //    const Divider(),
-                            // Container(
-                            //   height: 3,
-                            //   width: context.screenWidth - 190,
-                            //   decoration: BoxDecoration(
-                            //     color: Colors.white,
-                            //     borderRadius: BorderRadius.circular(20),
-                            //   ),
-                            // ),
-                          ],
+                          ),
+                          child: Row(
+                            // mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              HomeNavigationItem(
+                                itemName: context.locale.translate('home')!,
+                                tapHandler: () {},
+                              ),
+                              SizedBox(
+                                width: context.screenWidth * .03,
+                              ),
+                              HomeNavigationItem(
+                                itemName: context.locale.translate('about')!,
+                                tapHandler: () {},
+                              ),
+                              SizedBox(
+                                width: context.screenWidth * .03,
+                              ),
+                              HomeNavigationItem(
+                                itemName: context.locale.translate('gallery')!,
+                                tapHandler: () {},
+                              ),
+                              SizedBox(
+                                width: context.screenWidth * .03,
+                              ),
+                              HomeNavigationItem(
+                                itemName: context.locale.translate('units')!,
+                                tapHandler: () {},
+                              ),
+                              SizedBox(
+                                width: context.screenWidth * .03,
+                              ),
+                              HomeNavigationItem(
+                                itemName: context.locale.translate('offers')!,
+                                tapHandler: () {},
+                              ),
+                              SizedBox(
+                                width: context.screenWidth * .03,
+                              ),
+                              HomeNavigationItem(
+                                itemName: context.locale.translate('rest&bar')!,
+                                tapHandler: () {},
+                              ),
+                              SizedBox(
+                                width: context.screenWidth * .03,
+                              ),
+                              HomeNavigationItem(
+                                itemName:
+                                    context.locale.translate('facilities')!,
+                                tapHandler: () {},
+                              ),
+                              SizedBox(
+                                width: context.screenWidth * .03,
+                              ),
+                              HomeNavigationItem(
+                                itemName:
+                                    context.locale.translate('weeding&events')!,
+                                tapHandler: () {},
+                              ),
+                            ],
+                          ),
                         ),
                         const Spacer(),
                         InkWell(
@@ -175,7 +169,6 @@ class HomeScreenWebView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Divider(),
 
                   SizedBox(
                     height: context.screenHeight * .15,

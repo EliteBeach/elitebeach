@@ -82,10 +82,10 @@ class BottomNavBar extends StatelessWidget {
         //   ),
         // ),
         BottomNavigationBarItem(
-          label: 'More',
+          label: context.locale.translate('more'),
           icon: BlocBuilder<BottomNavCubit, BottomNavCubitState>(
             builder: (context, state) {
-              return BlocProvider.of<BottomNavCubit>(context).isActive
+              return !BlocProvider.of<BottomNavCubit>(context).isActive
                   ? const Icon(
                       Icons.arrow_upward_outlined,
                     )

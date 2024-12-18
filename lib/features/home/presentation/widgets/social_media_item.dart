@@ -7,11 +7,10 @@ class SocialMediaItem extends StatelessWidget {
   final Function tapHandler;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        tapHandler();
-      },
-      child: Image.asset(
+    return IconButton(
+      hoverColor: Colors.orange,
+      onPressed: () {},
+      icon: Image.asset(
         color: Colors.white,
         width: 20,
         height: 20,

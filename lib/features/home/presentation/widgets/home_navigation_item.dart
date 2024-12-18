@@ -11,7 +11,10 @@ class HomeNavigationItem extends StatelessWidget {
   final String itemName;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return TextButton(
+      style:
+          const ButtonStyle(overlayColor: WidgetStatePropertyAll(Colors.grey)),
+      onPressed: () {},
       child: Text(
         itemName,
         overflow: TextOverflow.ellipsis,
@@ -22,9 +25,6 @@ class HomeNavigationItem extends StatelessWidget {
           fontSize: context.screenWidth * .01,
         ),
       ),
-      onTap: () {
-        tapHandler();
-      },
     );
   }
 }
