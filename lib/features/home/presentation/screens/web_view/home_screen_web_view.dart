@@ -29,6 +29,17 @@ class HomeScreenWebView extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(
+                horizontal: context.screenWidth * .03,
+              ),
+              child: Image.asset(
+                AssetsData.eliteLogoNoBg,
+                width: context.screenHeight * .15,
+                height: context.screenWidth * .15,
+                color: Colors.white,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
                 horizontal: context.screenWidth * .01,
               ),
               child: Column(
@@ -38,20 +49,18 @@ class HomeScreenWebView extends StatelessWidget {
                     duration: const Duration(seconds: 2),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         //logo
-                        Image.asset(
-                          AssetsData.eliteLogoNoBg,
-                          width: context.screenHeight * .07,
-                          height: context.screenWidth * .07,
-                          color: Colors.white,
-                        ),
+
                         SizedBox(
                           width: context.screenWidth * .03,
                         ),
                         //Tabs
                         Container(
+                          margin: EdgeInsets.only(
+                            top: context.screenHeight * .04,
+                          ),
                           alignment: Alignment.center,
                           padding: EdgeInsets.only(
                             bottom: context.screenHeight *
@@ -128,7 +137,10 @@ class HomeScreenWebView extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const Spacer(),
+                        //  const Spacer(),
+                        SizedBox(
+                          width: context.screenWidth * .03,
+                        ),
                         InkWell(
                           onTap: () {
                             locale.isEnLocale
@@ -178,7 +190,7 @@ class HomeScreenWebView extends StatelessWidget {
                   ),
 
                   SizedBox(
-                    height: context.screenHeight * .15,
+                    height: context.screenHeight * .2,
                   ),
 
                   //body
@@ -238,41 +250,49 @@ class HomeScreenWebView extends StatelessWidget {
                           flex: 10,
                           child: FadeIn(
                             duration: const Duration(seconds: 3),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  context.locale.translate('discover_with_us')!,
-                                  style: TextStyle(
-                                    fontSize: context.screenWidth * .02,
-                                    letterSpacing: context.locale.isEnLocale
-                                        ? context.screenWidth * .005
-                                        : null,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    // fontFamily: 'EduAUVICWANTPre',
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                top: context.screenHeight * .2,
+                              ),
+                              child: Column(
+                                //  mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    context.locale
+                                        .translate('discover_with_us')!,
+                                    style: TextStyle(
+                                      fontSize: context.screenWidth * .02,
+                                      letterSpacing: context.locale.isEnLocale
+                                          ? context.screenWidth * .005
+                                          : null,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      // fontFamily: 'EduAUVICWANTPre',
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                BlocBuilder<LocaleCubit, LocaleState>(
-                                  builder: (context, state) {
-                                    return Text(
-                                      context.locale.translate('welcome_txt')!,
-                                      style: TextStyle(
-                                        letterSpacing: context.locale.isEnLocale
-                                            ? context.screenWidth * .005
-                                            : null,
-                                        fontSize: context.screenWidth * .03,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        //  fontFamily: 'EduAUVICWANTPre',
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ],
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  BlocBuilder<LocaleCubit, LocaleState>(
+                                    builder: (context, state) {
+                                      return Text(
+                                        context.locale
+                                            .translate('welcome_txt')!,
+                                        style: TextStyle(
+                                          letterSpacing:
+                                              context.locale.isEnLocale
+                                                  ? context.screenWidth * .005
+                                                  : null,
+                                          fontSize: context.screenWidth * .03,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          //  fontFamily: 'EduAUVICWANTPre',
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),

@@ -21,16 +21,22 @@ class BottomNavMoreItem extends StatelessWidget {
         ),
       ),
       child: TextButton.icon(
-        style: const ButtonStyle(
-            overlayColor: WidgetStatePropertyAll(
-          Colors.white,
-        )),
+        style: ButtonStyle(
+          backgroundColor: WidgetStatePropertyAll(
+            Colors.transparent.withOpacity(.1),
+          ),
+          overlayColor: const WidgetStatePropertyAll(
+            Colors.grey,
+          ),
+        ),
         iconAlignment: IconAlignment.end,
         label: Text(
           iconName,
           style: TextStyle(
             fontSize: context.screenWidth * .028,
-            color: Colors.black87,
+            color: Colors.white.withOpacity(
+              .5,
+            ),
             fontWeight: FontWeight.bold,
             //  fontFamily: 'EduAUVICWANTPre',
           ),
@@ -39,7 +45,9 @@ class BottomNavMoreItem extends StatelessWidget {
         icon: Icon(
           icon,
           size: context.screenWidth * .06,
-          color: Colors.black54,
+          color: Colors.white.withOpacity(
+            .5,
+          ),
         ),
       ),
     );
