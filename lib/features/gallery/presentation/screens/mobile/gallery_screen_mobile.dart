@@ -106,7 +106,7 @@ class GalleryScreenMobile extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                          fontSize: context.screenWidth * .03,
+                          fontSize: context.screenWidth * .035,
                         ),
                       ),
                       const Divider(),
@@ -135,7 +135,7 @@ class GalleryScreenMobile extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                          fontSize: context.screenWidth * .03,
+                          fontSize: context.screenWidth * .035,
                         ),
                       ),
                       const Divider(),
@@ -151,7 +151,7 @@ class GalleryScreenMobile extends StatelessWidget {
                                 horizontal: context.screenWidth * .01,
                               ),
                               child: Image.asset(
-                                AssetsData.pool,
+                                AssetsData.aboutScreenBg,
                               ),
                             );
                           },
@@ -164,7 +164,7 @@ class GalleryScreenMobile extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                          fontSize: context.screenWidth * .03,
+                          fontSize: context.screenWidth * .035,
                         ),
                       ),
                       const Divider(),
@@ -180,7 +180,7 @@ class GalleryScreenMobile extends StatelessWidget {
                                 horizontal: context.screenWidth * .01,
                               ),
                               child: Image.asset(
-                                AssetsData.pool,
+                                AssetsData.aboutScreenImg,
                               ),
                             );
                           },
@@ -192,8 +192,8 @@ class GalleryScreenMobile extends StatelessWidget {
                         context.locale.translate('elite_resort_imgs')!,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          fontSize: context.screenWidth * .03,
+                          color: Colors.white,
+                          fontSize: context.screenWidth * .035,
                         ),
                       ),
                       const Divider(),
