@@ -1,4 +1,5 @@
 import 'package:elite_beach/features/about/presentation/screens/mobile/about_mobile_screen.dart';
+import 'package:elite_beach/features/gallery/presentation/screens/mobile/gallery_screen_mobile.dart';
 import 'package:elite_beach/features/home/presentation/manager/cubit/bottom_nav_cubit_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +25,9 @@ class HomeScreenMobileView extends StatelessWidget {
                     ? const HomeScreenMobileBody()
                     : activeIndex == 1
                         ? const AboutMobileScreen()
-                        : const HomeScreenMobileBody();
+                        : activeIndex == 2
+                            ? const GalleryScreenMobile()
+                            : const HomeScreenMobileBody();
               },
             ),
           );
