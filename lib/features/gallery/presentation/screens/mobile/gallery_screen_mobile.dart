@@ -15,22 +15,12 @@ class GalleryScreenMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          // decoration: const BoxDecoration(
-          //   gradient: LinearGradient(tileMode: TileMode.mirror, colors: [
-          //     Colors.teal,
-          //     Colors.blueAccent,
-          //     Colors.cyan,
-          //     Colors.blue,
-          //   ]),
-          // ),
-          child: Image.asset(
-            AssetsData.homeImage,
-            opacity: const AlwaysStoppedAnimation(.8),
-            fit: BoxFit.cover,
-            height: context.screenHeight,
-            width: context.screenWidth,
-          ),
+        Image.asset(
+          AssetsData.homeImage,
+          opacity: const AlwaysStoppedAnimation(.8),
+          fit: BoxFit.cover,
+          height: context.screenHeight,
+          width: context.screenWidth,
         ),
         Padding(
           padding: EdgeInsets.symmetric(
@@ -52,7 +42,7 @@ class GalleryScreenMobile extends StatelessWidget {
                     ),
                     const Spacer(),
                     Text(
-                      'Elite Gallery',
+                      context.locale.translate('elite_gallery')!,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -108,7 +98,18 @@ class GalleryScreenMobile extends StatelessWidget {
                 height: context.screenHeight * .7,
                 child: SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      //hotel gallery
+                      Text(
+                        context.locale.translate('elite_hotel_imgs')!,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: context.screenWidth * .03,
+                        ),
+                      ),
+                      const Divider(),
                       SizedBox(
                         height: context.screenHeight * .25,
                         child: ListView.builder(
@@ -128,6 +129,16 @@ class GalleryScreenMobile extends StatelessWidget {
                         ),
                       ),
                       Gaps.vGap16,
+                      //studio gallery
+                      Text(
+                        context.locale.translate('elite_studio_imgs')!,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: context.screenWidth * .03,
+                        ),
+                      ),
+                      const Divider(),
                       SizedBox(
                         height: context.screenHeight * .25,
                         child: ListView.builder(
@@ -147,6 +158,16 @@ class GalleryScreenMobile extends StatelessWidget {
                         ),
                       ),
                       Gaps.vGap16,
+                      //challet gallery
+                      Text(
+                        context.locale.translate('elite_challet_imgs')!,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: context.screenWidth * .03,
+                        ),
+                      ),
+                      const Divider(),
                       SizedBox(
                         height: context.screenHeight * .25,
                         child: ListView.builder(
@@ -166,6 +187,16 @@ class GalleryScreenMobile extends StatelessWidget {
                         ),
                       ),
                       Gaps.vGap16,
+                      //elite gallery
+                      Text(
+                        context.locale.translate('elite_resort_imgs')!,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: context.screenWidth * .03,
+                        ),
+                      ),
+                      const Divider(),
                       SizedBox(
                         height: context.screenHeight * .25,
                         child: ListView.builder(
