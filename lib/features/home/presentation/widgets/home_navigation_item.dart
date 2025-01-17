@@ -14,7 +14,9 @@ class HomeNavigationItem extends StatelessWidget {
     return TextButton(
       style:
           const ButtonStyle(overlayColor: WidgetStatePropertyAll(Colors.grey)),
-      onPressed: () {},
+      onPressed: () {
+        tapHandler();
+      },
       child: Text(
         itemName,
         overflow: TextOverflow.ellipsis,

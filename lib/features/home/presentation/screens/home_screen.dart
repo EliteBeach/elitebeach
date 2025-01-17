@@ -37,7 +37,9 @@ class HomeScreen extends StatelessWidget {
                 AppLocalizationsSetup.localizationsDelegates,
             title: 'Elite Beach',
             debugShowCheckedModeBanner: false,
-            home: useWeb ? const HomeScreenMobileView() : HomeScreenWebView(),
+            home: useWeb
+                ? const HomeScreenMobileView()
+                : const HomeScreenWebView(),
           );
         },
       ),

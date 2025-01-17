@@ -20,33 +20,8 @@ class BottomNavCubit extends Cubit<BottomNavCubitState> {
   }
 
   void updateUi(int index) {
-    //home screen
-    if (index == 0) {
-      emit(const BottomNavCubitInitial());
-      activeBottomNavIndex = 0;
-      emit(BottomNavChanged(activeBottomNavIndex));
-    }
-    //about screen
-    if (index == 1) {
-      emit(const BottomNavCubitInitial());
-      activeBottomNavIndex = 1;
-      emit(BottomNavChanged(activeBottomNavIndex));
-    }
-    //
-    if (index == 2) {
-      emit(const BottomNavCubitInitial());
-      activeBottomNavIndex = 2;
-      emit(BottomNavChanged(activeBottomNavIndex));
-    }
-    if (index == 3) {
-      emit(const BottomNavCubitInitial());
-      activeBottomNavIndex = 3;
-      emit(BottomNavChanged(activeBottomNavIndex));
-    }
-    if (index == 4) {
-      emit(const BottomNavCubitInitial());
-      activeBottomNavIndex = 4;
-      emit(BottomNavChanged(activeBottomNavIndex));
-    }
+    emit(const BottomNavCubitInitial());
+    activeBottomNavIndex = index;
+    emit(BottomNavChanged(activeBottomNavIndex));
   }
 }

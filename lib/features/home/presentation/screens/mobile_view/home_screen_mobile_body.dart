@@ -196,17 +196,7 @@ class HomeScreenMobileBody extends StatelessWidget {
                           : const SizedBox();
                     },
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30)),
-                      color: Colors.transparent.withOpacity(
-                        .5,
-                      ),
-                    ),
-                    child: const BottomNavBar(),
-                  ),
+                  const BottomNavBar(),
                 ],
               ),
             ],

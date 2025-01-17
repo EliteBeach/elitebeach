@@ -8,15 +8,109 @@ class AboutMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
         Image.asset(
-          AssetsData.eliteLogoNoBg,
-          width: context.screenWidth * .1,
-          height: context.screenHeight * .1,
+          AssetsData.aboutScreenImg,
+          fit: BoxFit.cover,
+          height: context.screenHeight,
+          width: context.screenWidth,
         ),
-        const Spacer(),
-        const BottomNavBar(),
+        Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: context.screenWidth * .05,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  Image.asset(
+                    AssetsData.eliteLogoNoBg,
+                    width: context.screenWidth * .15,
+                    height: context.screenHeight * .15,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: context.screenHeight * .1,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Icon(
+                        Icons.maps_home_work_rounded,
+                        color: Colors.blueGrey,
+                      ),
+                      SizedBox(
+                        width: context.screenWidth * .03,
+                      ),
+                      Text(
+                        context.locale.translate('about_txt_1')!,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: context.screenHeight * .03,
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Icon(
+                        Icons.location_on_rounded,
+                        color: Colors.blueGrey,
+                      ),
+                      SizedBox(
+                        width: context.screenWidth * .03,
+                      ),
+                      Text(
+                        context.locale.translate('about_txt_2')!,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: context.screenHeight * .03,
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Icon(
+                        Icons.flag_circle_rounded,
+                        color: Colors.blueGrey,
+                      ),
+                      SizedBox(
+                        width: context.screenWidth * .03,
+                      ),
+                      Text(
+                        context.locale.translate('about_txt_3')!,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const Spacer(),
+              const BottomNavBar(),
+            ],
+          ),
+        ),
       ],
     );
   }
