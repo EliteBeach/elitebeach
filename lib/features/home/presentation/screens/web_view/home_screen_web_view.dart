@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/functions/setup_service_locator.dart';
+import '../../../../about/presentation/screens/web/about_web_screen.dart';
 import '../../manager/cubit/bottom_nav_cubit_cubit.dart';
 import '../../widgets/welcome_home_screen_web_body.dart';
 import 'home_screen_web_view_body.dart';
@@ -28,7 +29,7 @@ class HomeScreenWebView extends StatelessWidget {
                   (state is BottomNavCubitInitial || activeScreenIndex == 0)
                       ? const WelcomeHomeScreenWebBody()
                       : activeScreenIndex == 1
-                          ? const Text('About')
+                          ? const AboutWebScreenBody()
                           : Text(activeScreenIndex.toString()),
             );
           },
