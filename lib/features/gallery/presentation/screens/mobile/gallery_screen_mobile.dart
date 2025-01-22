@@ -1,5 +1,4 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:elite_beach/core/utils/gaps.dart';
 import 'package:elite_beach/core/utils/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
+import '../../widgets/custom_gallery_list_view.dart';
 
 class GalleryScreenMobile extends StatelessWidget {
   const GalleryScreenMobile({super.key});
@@ -94,6 +94,7 @@ class GalleryScreenMobile extends StatelessWidget {
               SizedBox(
                 height: context.screenHeight * .03,
               ),
+              //Images list view
               SizedBox(
                 height: context.screenHeight * .7,
                 child: SingleChildScrollView(
@@ -101,124 +102,38 @@ class GalleryScreenMobile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       //hotel gallery
-                      Text(
-                        context.locale.translate('elite_hotel_imgs')!,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: context.screenWidth * .035,
-                        ),
+                      CustomGalleryListView(
+                        galleryTitle:
+                            context.locale.translate('elite_hotel_imgs')!,
+                        testImgSrc: AssetsData.pool,
                       ),
-                      const Divider(),
-                      SizedBox(
-                        height: context.screenHeight * .25,
-                        child: ListView.builder(
-                          itemCount: 40,
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: context.screenWidth * .01,
-                              ),
-                              child: Image.asset(
-                                AssetsData.pool,
-                              ),
-                            );
-                          },
-                        ),
+
+                      CustomGalleryListView(
+                        galleryTitle:
+                            context.locale.translate('elite_challet_imgs')!,
+                        testImgSrc: AssetsData.aboutScreenImg,
                       ),
-                      Gaps.vGap16,
-                      //studio gallery
-                      Text(
-                        context.locale.translate('elite_studio_imgs')!,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: context.screenWidth * .035,
-                        ),
+                      CustomGalleryListView(
+                        galleryTitle:
+                            context.locale.translate('elite_studio_imgs')!,
+                        testImgSrc: AssetsData.pool,
                       ),
-                      const Divider(),
-                      SizedBox(
-                        height: context.screenHeight * .25,
-                        child: ListView.builder(
-                          itemCount: 40,
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: context.screenWidth * .01,
-                              ),
-                              child: Image.asset(
-                                AssetsData.aboutScreenBg,
-                              ),
-                            );
-                          },
-                        ),
+
+                      CustomGalleryListView(
+                        galleryTitle:
+                            context.locale.translate('elite_market_imgs')!,
+                        testImgSrc: AssetsData.aboutScreenImg,
                       ),
-                      Gaps.vGap16,
-                      //challet gallery
-                      Text(
-                        context.locale.translate('elite_challet_imgs')!,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: context.screenWidth * .035,
-                        ),
-                      ),
-                      const Divider(),
-                      SizedBox(
-                        height: context.screenHeight * .25,
-                        child: ListView.builder(
-                          itemCount: 40,
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: context.screenWidth * .01,
-                              ),
-                              child: Image.asset(
-                                AssetsData.aboutScreenImg,
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      Gaps.vGap16,
-                      //elite gallery
-                      Text(
-                        context.locale.translate('elite_resort_imgs')!,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: context.screenWidth * .035,
-                        ),
-                      ),
-                      const Divider(),
-                      SizedBox(
-                        height: context.screenHeight * .25,
-                        child: ListView.builder(
-                          itemCount: 40,
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: context.screenWidth * .01,
-                              ),
-                              child: Image.asset(
-                                AssetsData.pool,
-                              ),
-                            );
-                          },
-                        ),
+                      CustomGalleryListView(
+                        galleryTitle:
+                            context.locale.translate('elite_resort_imgs')!,
+                        testImgSrc: AssetsData.pool,
                       ),
                     ],
                   ),
                 ),
               ),
+
               const Spacer(),
               const BottomNavBar(),
             ],
