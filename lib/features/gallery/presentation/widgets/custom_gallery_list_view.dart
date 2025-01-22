@@ -34,8 +34,10 @@ class CustomGalleryListView extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                   horizontal: context.screenWidth * .01,
                 ),
-                child: Image.asset(
-                  testImgSrc,
+                child: InteractiveViewer(
+                  child: Image.asset(
+                    testImgSrc,
+                  ),
                 ),
               );
             },
