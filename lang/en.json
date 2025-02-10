@@ -26,5 +26,12 @@
   "arcade_zone": "Arcade Zone",
   "kids_Area": "Kids Area",
   "events": "Events",
-  "housing": "housing"
+  "housing": "housing",
+  "deluxe_chalet": "Deluxe chalet",
+  "standard_chalet": "Standard chalet",
+  "studio": "studio",
+  "sea_view_triple_room": "Sea & pool view triple room",
+  "sea_view_double_room": "Sea & pool view double room",
+  "side_view_double_room": "Side view double room",
+  "back_view_double_room": "Back view double room"
 }

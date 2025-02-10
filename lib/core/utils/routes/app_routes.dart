@@ -2,6 +2,8 @@ import 'package:elite_beach/features/gallery/presentation/screens/mobile/gallery
 import 'package:flutter/material.dart';
 
 import '../../../features/home/presentation/screens/home_screen.dart';
+import '../../../features/housing/data/models/housing_units.dart';
+import '../../../features/housing/presentation/views/mobile/housing_details_screen.dart';
 import '../constants.dart';
 
 class AppRoutes {
@@ -14,12 +16,17 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case kGalleryDetailsMobileScreenRoute:
         List<String> args = routeSettings.arguments as List<String>;
-
         return MaterialPageRoute(
           builder: (_) => GalleryDetailsMobileScreen(
             imagesListPath: args,
           ),
         );
+      case kHousingDetailsMobileScreenRoute:
+        HousingUnitModel args = routeSettings.arguments as HousingUnitModel;
+        return MaterialPageRoute(
+            builder: (_) => HousingDetailsScreenMobile(
+                  housingUnitModel: args,
+                ));
 
       default:
         return null;

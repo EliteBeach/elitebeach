@@ -26,5 +26,12 @@
   "arcade_zone": "منطقة الألعاب الترفيهيه",
   "kids_Area": "منطفة ألعاب الأطفال",
   "events": "الأنشطه و الرحلات",
-  "housing": "الإسكان"
+  "housing": "الإسكان",
+  "deluxe_chalet": "شاليه مميز",
+  "standard_chalet": "شاليه عادي",
+  "studio": "استوديو",
+  "sea_view_triple_room": "غرفه ثلاثيه أماميه",
+  "sea_view_double_room": "غرفه ثنائيه أماميه",
+  "side_view_double_room": "غرفه ثنائيه جانبيه",
+  "back_view_double_room": "غرفه ثنائيه خلفيه"
 }

@@ -1,10 +1,12 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:elite_beach/core/utils/helper.dart';
+import 'package:elite_beach/features/housing/data/data_sources/housing_units_data_source.dart';
 import 'package:elite_beach/features/housing/presentation/widgets/custom_housing_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/assets.dart';
+import '../../../../../core/utils/constants.dart';
 import '../../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
 
@@ -13,6 +15,7 @@ class HousingScreenMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HousingUnitDataSource housingUnitDataSource = HousingUnitDataSource();
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: context.screenWidth * .05,
@@ -93,9 +96,21 @@ class HousingScreenMobile extends StatelessWidget {
                 childAspectRatio: 1.5,
                 mainAxisSpacing: 10,
               ),
-              itemCount: 7,
+              itemCount: housingUnitDataSource.housingUnitsData.length,
               itemBuilder: (context, index) {
-                return const CustomHousingItemWidget();
+                return InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(
+                        context, kHousingDetailsMobileScreenRoute,
+                        arguments:
+                            housingUnitDataSource.housingUnitsData[index]);
+                  },
+                  child: CustomHousingItemWidget(
+                    title: housingUnitDataSource.housingUnitsData[index].title,
+                    imagePath: housingUnitDataSource
+                        .housingUnitsData[index].gridImagePath,
+                  ),
+                );
               },
             ),
           ),

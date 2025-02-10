@@ -11,6 +11,8 @@ const String kLanguageScreenRoute = '/languageScreen';
 const String kHomeScreenRoute = '/homeScreen';
 const String kGalleryDetailsMobileScreenRoute =
     '/galleryDetailsMobileScreenRoute';
+const String kHousingDetailsMobileScreenRoute =
+    '/housingDetailsMobileScreenRoute';
 
 //BottomNavItemsIndex
 // const int kHomeScreen = 0;
