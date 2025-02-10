@@ -1,6 +1,6 @@
 import 'package:elite_beach/features/gallery/presentation/screens/mobile/gallery_screen_mobile.dart';
 import 'package:elite_beach/features/home/presentation/manager/cubit/bottom_nav_cubit_cubit.dart';
-import 'package:elite_beach/features/units/presentation/views/units_screen.dart';
+import 'package:elite_beach/features/housing/presentation/views/mobile/housing_screen_mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,7 +20,7 @@ class HomeScreenMobileView extends StatelessWidget {
               BlocProvider.of<BottomNavCubit>(context).activeBottomNavIndex;
           return Scaffold(
             backgroundColor:
-                activeIndex == 1 ? const Color(0xffB0BDC0) : Colors.white,
+                activeIndex != 0 ? const Color(0xffB0BDC0) : Colors.white,
             body: BlocBuilder<BottomNavCubit, BottomNavCubitState>(
               builder: (context, state) {
                 return activeIndex == 0
@@ -28,7 +28,7 @@ class HomeScreenMobileView extends StatelessWidget {
                     : activeIndex == 1
                         ? const GalleryScreenMobile()
                         : activeIndex == 2
-                            ? const UnitsScreen()
+                            ? const HousingScreenMobile()
                             : activeIndex == 3
                                 ? const HomeScreenMobileBody()
                                 : const HomeScreenMobileBody();

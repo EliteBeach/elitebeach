@@ -7,6 +7,7 @@ class AssetsData {
   static const eliteLogoNoBg = '${pathImage}elite_logo_no_bg.png';
   static const aboutScreenBg = '${pathImage}about_screen_bg.jpg';
   static const aboutScreenImg = '${pathImage}about_img.webp';
+  static const testHousing1 = '${pathImage}housing1.jpg';
 
 //pool
   static const pool = '${pathImage}pool/pool.jpg';

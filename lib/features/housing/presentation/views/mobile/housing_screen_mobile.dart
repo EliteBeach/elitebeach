@@ -1,20 +1,18 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:elite_beach/core/utils/helper.dart';
+import 'package:elite_beach/features/housing/presentation/widgets/custom_housing_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
-import '../../../data/models/gallery_model.dart';
-import '../../widgets/custom_gallery_item.dart';
 
-class GalleryScreenMobile extends StatelessWidget {
-  const GalleryScreenMobile({super.key});
+class HousingScreenMobile extends StatelessWidget {
+  const HousingScreenMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
-    GalleryModel galleryModel = GalleryModel();
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: context.screenWidth * .05,
@@ -35,7 +33,7 @@ class GalleryScreenMobile extends StatelessWidget {
                 ),
                 const Spacer(),
                 Text(
-                  context.locale.translate('elite_gallery')!,
+                  context.locale.translate('housing')!,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
@@ -87,60 +85,21 @@ class GalleryScreenMobile extends StatelessWidget {
           SizedBox(
             height: context.screenHeight * .03,
           ),
-          //Images list view
-          SizedBox(
-            height: context.screenHeight * .7,
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('pool_deck')!,
-                    testImgListSrc: galleryModel.poolDeckImagesList,
-                  ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('beach')!,
-                    testImgListSrc: galleryModel.beachImagesList,
-                  ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('hotel')!,
-                    testImgListSrc: galleryModel.hotelImagesList,
-                  ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('chalets')!,
-                    testImgListSrc: galleryModel.chaletsImagesList,
-                  ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('studios')!,
-                    testImgListSrc: galleryModel.studiosImagesList,
-                  ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('restaurant')!,
-                    testImgListSrc: galleryModel.restaurantImagesList,
-                  ),
-                  CustomGalleryItem(
-                    testImgListSrc: galleryModel.superMarketImagesList,
-                    galleryTitle: context.locale.translate('super_market')!,
-                  ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('arcade_zone')!,
-                    testImgListSrc: galleryModel.arcadeZoneImagesList,
-                  ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('kids_Area')!,
-                    testImgListSrc: galleryModel.kidsAreaImagesList,
-                  ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('events')!,
-                    testImgListSrc: galleryModel.eventsImagesList,
-                  ),
-                ],
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                childAspectRatio: 1.5,
+                mainAxisSpacing: 10,
               ),
+              itemCount: 7,
+              itemBuilder: (context, index) {
+                return const CustomHousingItemWidget();
+              },
             ),
           ),
-
-          const Spacer(),
+          //  const Spacer(),
           const BottomNavBar(),
         ],
       ),
