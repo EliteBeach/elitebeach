@@ -7,7 +7,7 @@ import '../../../../../core/utils/assets.dart';
 import '../../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
 import '../../../data/models/gallery_model.dart';
-import '../../widgets/custom_gallery_grid_view.dart';
+import '../../widgets/custom_gallery_item.dart';
 
 class GalleryScreenMobile extends StatelessWidget {
   const GalleryScreenMobile({super.key});
@@ -92,45 +92,46 @@ class GalleryScreenMobile extends StatelessWidget {
             height: context.screenHeight * .7,
             child: SingleChildScrollView(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomGalleryGridView(
+                  CustomGalleryItem(
                     galleryTitle: context.locale.translate('pool_deck')!,
                     testImgListSrc: galleryModel.poolDeckImagesList,
                   ),
-                  CustomGalleryGridView(
+                  CustomGalleryItem(
                     galleryTitle: context.locale.translate('beach')!,
                     testImgListSrc: galleryModel.beachImagesList,
                   ),
-                  CustomGalleryGridView(
+                  CustomGalleryItem(
                     galleryTitle: context.locale.translate('hotel')!,
                     testImgListSrc: galleryModel.hotelImagesList,
                   ),
-                  CustomGalleryGridView(
+                  CustomGalleryItem(
                     galleryTitle: context.locale.translate('chalets')!,
                     testImgListSrc: galleryModel.chaletsImagesList,
                   ),
-                  CustomGalleryGridView(
+                  CustomGalleryItem(
                     galleryTitle: context.locale.translate('studios')!,
                     testImgListSrc: galleryModel.studiosImagesList,
                   ),
-                  CustomGalleryGridView(
+                  CustomGalleryItem(
                     galleryTitle: context.locale.translate('restaurant')!,
                     testImgListSrc: galleryModel.restaurantImagesList,
                   ),
-                  CustomGalleryGridView(
+                  CustomGalleryItem(
                     testImgListSrc: galleryModel.superMarketImagesList,
                     galleryTitle: context.locale.translate('super_market')!,
                   ),
-                  CustomGalleryGridView(
+                  CustomGalleryItem(
                     galleryTitle: context.locale.translate('arcade_zone')!,
                     testImgListSrc: galleryModel.arcadeZoneImagesList,
                   ),
-                  CustomGalleryGridView(
+                  CustomGalleryItem(
                     galleryTitle: context.locale.translate('kids_Area')!,
                     testImgListSrc: galleryModel.kidsAreaImagesList,
                   ),
-                  CustomGalleryGridView(
+                  CustomGalleryItem(
                     galleryTitle: context.locale.translate('events')!,
                     testImgListSrc: galleryModel.eventsImagesList,
                   ),

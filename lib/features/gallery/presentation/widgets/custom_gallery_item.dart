@@ -2,8 +2,8 @@ import 'package:elite_beach/core/utils/constants.dart';
 import 'package:elite_beach/core/utils/helper.dart';
 import 'package:flutter/material.dart';
 
-class CustomGalleryGridView extends StatelessWidget {
-  const CustomGalleryGridView(
+class CustomGalleryItem extends StatelessWidget {
+  const CustomGalleryItem(
       {super.key, required this.galleryTitle, required this.testImgListSrc});
   final String galleryTitle;
   final List<String> testImgListSrc;
@@ -31,7 +31,7 @@ class CustomGalleryGridView extends StatelessWidget {
             height: 2,
           ),
           SizedBox(
-            height: context.screenHeight * .01,
+            height: context.screenHeight * .03,
           ),
           // SizedBox(
           //     height: context.screenHeight * .3,
