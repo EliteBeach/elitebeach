@@ -40,15 +40,16 @@ class CustomGalleryGridView extends StatelessWidget {
               child: GridView.builder(
                 itemCount: testImgListSrc.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 6,
+                  crossAxisCount: 5,
                   crossAxisSpacing: 0,
                   mainAxisSpacing: 10,
                   childAspectRatio: 1,
-                  mainAxisExtent: 50,
+                  mainAxisExtent: 70,
                 ),
                 itemBuilder: (context, index) {
                   return Image.asset(
                     testImgListSrc[index],
+                    fit: BoxFit.cover,
                   );
                 },
               )),
