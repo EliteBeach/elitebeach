@@ -25,43 +25,23 @@ class HomeScreenMobileBody extends StatelessWidget {
         Positioned(
           left: 0,
           right: 0,
-          top: 0,
+          top: context.screenHeight * .5,
           bottom: 0,
           child: FadeIn(
             duration: const Duration(seconds: 3),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  context.locale.translate('discover_with_us')!,
+                  context.locale.translate('welcome_txt')!,
                   style: TextStyle(
-                    fontSize: context.screenWidth * .03,
                     letterSpacing: context.locale.isEnLocale
                         ? context.screenWidth * .005
                         : null,
+                    fontSize: context.screenWidth * .02,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    //        fontFamily: 'EduAUVICWANTPre',
+                    //   fontFamily: 'EduAUVICWANTPre',
                   ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                BlocBuilder<LocaleCubit, LocaleState>(
-                  builder: (context, state) {
-                    return Text(
-                      context.locale.translate('welcome_txt')!,
-                      style: TextStyle(
-                        letterSpacing: context.locale.isEnLocale
-                            ? context.screenWidth * .005
-                            : null,
-                        fontSize: context.screenWidth * .035,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        //   fontFamily: 'EduAUVICWANTPre',
-                      ),
-                    );
-                  },
                 ),
               ],
             ),
@@ -74,45 +54,13 @@ class HomeScreenMobileBody extends StatelessWidget {
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image.asset(
                     AssetsData.eliteLogoNoBg,
                     width: context.screenWidth * .15,
                     height: context.screenHeight * .15,
                     color: Colors.white,
-                  ),
-                  const Spacer(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.only(
-                          bottom: 5, // Space between underline and text
-                        ),
-                        decoration: const BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(
-                              color: Colors.white,
-                              width: 1.0, // Underline thickness
-                            ),
-                          ),
-                        ),
-                        child: Text(
-                          context.locale.translate('elite_beach_res&hotel')!,
-                          style: TextStyle(
-                            letterSpacing: context.locale.isEnLocale
-                                ? context.screenWidth * .005
-                                : null,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            //   fontFamily: 'EduAUVICWANTPre',
-                            fontSize: context.screenWidth * .03,
-                          ),
-                        ),
-                      )
-                    ],
                   ),
                   const Spacer(),
                   InkWell(
@@ -155,9 +103,6 @@ class HomeScreenMobileBody extends StatelessWidget {
                   )
                 ],
               ),
-              // const Spacer(),
-
-              //     const Spacer(),
               SizedBox(
                 height: context.screenHeight * .05,
               ),
