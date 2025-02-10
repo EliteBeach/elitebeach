@@ -6,13 +6,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
-import '../../widgets/custom_gallery_list_view.dart';
+import '../../../data/models/gallery_model.dart';
+import '../../widgets/custom_gallery_grid_view.dart';
 
 class GalleryScreenMobile extends StatelessWidget {
   const GalleryScreenMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
+    GalleryModel galleryModel = GalleryModel();
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: context.screenWidth * .05,
@@ -94,43 +96,43 @@ class GalleryScreenMobile extends StatelessWidget {
                 children: [
                   CustomGalleryGridView(
                     galleryTitle: context.locale.translate('pool_deck')!,
-                    testImgSrc: AssetsData.pool,
+                    testImgListSrc: galleryModel.poolDeckImagesList,
                   ),
                   CustomGalleryGridView(
                     galleryTitle: context.locale.translate('beach')!,
-                    testImgSrc: AssetsData.aboutScreenImg,
+                    testImgListSrc: galleryModel.beachImagesList,
                   ),
                   CustomGalleryGridView(
                     galleryTitle: context.locale.translate('hotel')!,
-                    testImgSrc: AssetsData.pool,
+                    testImgListSrc: galleryModel.hotelImagesList,
                   ),
                   CustomGalleryGridView(
                     galleryTitle: context.locale.translate('chalets')!,
-                    testImgSrc: AssetsData.aboutScreenImg,
+                    testImgListSrc: galleryModel.chaletsImagesList,
                   ),
                   CustomGalleryGridView(
                     galleryTitle: context.locale.translate('studios')!,
-                    testImgSrc: AssetsData.pool,
+                    testImgListSrc: galleryModel.studiosImagesList,
                   ),
                   CustomGalleryGridView(
                     galleryTitle: context.locale.translate('restaurant')!,
-                    testImgSrc: AssetsData.pool,
+                    testImgListSrc: galleryModel.restaurantImagesList,
                   ),
                   CustomGalleryGridView(
+                    testImgListSrc: galleryModel.superMarketImagesList,
                     galleryTitle: context.locale.translate('super_market')!,
-                    testImgSrc: AssetsData.pool,
                   ),
                   CustomGalleryGridView(
                     galleryTitle: context.locale.translate('arcade_zone')!,
-                    testImgSrc: AssetsData.pool,
+                    testImgListSrc: galleryModel.arcadeZoneImagesList,
                   ),
                   CustomGalleryGridView(
                     galleryTitle: context.locale.translate('kids_Area')!,
-                    testImgSrc: AssetsData.pool,
+                    testImgListSrc: galleryModel.kidsAreaImagesList,
                   ),
                   CustomGalleryGridView(
                     galleryTitle: context.locale.translate('events')!,
-                    testImgSrc: AssetsData.pool,
+                    testImgListSrc: galleryModel.eventsImagesList,
                   ),
                 ],
               ),

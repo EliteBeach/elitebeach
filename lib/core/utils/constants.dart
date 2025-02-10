@@ -9,9 +9,8 @@ const String initialRoute = '/';
 
 const String kLanguageScreenRoute = '/languageScreen';
 const String kHomeScreenRoute = '/homeScreen';
-const String kEliteLoginScreenRoute = '/eliteLoginScreen';
-
-const String kEliteUnitsScreenRoute = '/eliteUnitsScreen';
+const String kGalleryDetailsMobileScreenRoute =
+    '/galleryDetailsMobileScreenRoute';
 
 //BottomNavItemsIndex
 // const int kHomeScreen = 0;

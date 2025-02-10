@@ -25,8 +25,10 @@ class BottomNavBar extends StatelessWidget {
             onTap: (value) {
               if (value == 4) {
                 BlocProvider.of<BottomNavCubit>(context).showMore();
+              } else {
+                BlocProvider.of<BottomNavCubit>(context).hideShowMore();
+                BlocProvider.of<BottomNavCubit>(context).updateUi(value);
               }
-              BlocProvider.of<BottomNavCubit>(context).updateUi(value);
             },
             type: BottomNavigationBarType.fixed,
             backgroundColor: Colors.transparent,
@@ -59,16 +61,17 @@ class BottomNavBar extends StatelessWidget {
                   Icons.photo_album_outlined,
                 ),
               ),
-              BottomNavigationBarItem(
-                label: context.locale.translate('facilities')!,
-                icon: const Icon(
-                  Icons.supervised_user_circle_rounded,
-                ),
-              ),
+
               BottomNavigationBarItem(
                 label: context.locale.translate('units')!,
                 icon: const Icon(
                   Icons.villa_outlined,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: context.locale.translate('facilities')!,
+                icon: const Icon(
+                  Icons.supervised_user_circle_rounded,
                 ),
               ),
               // BottomNavigationBarItem(

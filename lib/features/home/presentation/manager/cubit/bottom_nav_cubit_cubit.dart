@@ -19,6 +19,13 @@ class BottomNavCubit extends Cubit<BottomNavCubitState> {
     }
   }
 
+  void hideShowMore() {
+    if (isActive) {
+      isActive = false;
+      emit(const BottomNavCubitInitial());
+    }
+  }
+
   void updateUi(int index) {
     emit(const BottomNavCubitInitial());
     activeBottomNavIndex = index;

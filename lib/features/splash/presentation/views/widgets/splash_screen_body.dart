@@ -69,7 +69,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
     SharedPreferences pref = await SharedPreferences.getInstance();
     bool seen = (pref.getBool('seen') ?? false);
     if (seen) {
-      Navigator.pushReplacementNamed(context, kEliteLoginScreenRoute);
+      Navigator.pushReplacementNamed(context, kLanguageScreenRoute);
     } else {
       await pref.setBool('seen', true);
 
