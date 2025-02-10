@@ -37,7 +37,7 @@ class HomeScreenMobileBody extends StatelessWidget {
                     letterSpacing: context.locale.isEnLocale
                         ? context.screenWidth * .005
                         : null,
-                    fontSize: context.screenWidth * .033,
+                    fontSize: context.screenWidth * .04,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     //   fontFamily: 'EduAUVICWANTPre',

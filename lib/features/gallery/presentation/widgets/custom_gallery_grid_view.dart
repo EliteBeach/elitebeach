@@ -2,8 +2,6 @@ import 'package:elite_beach/core/utils/constants.dart';
 import 'package:elite_beach/core/utils/helper.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/gaps.dart';
-
 class CustomGalleryGridView extends StatelessWidget {
   const CustomGalleryGridView(
       {super.key, required this.galleryTitle, required this.testImgListSrc});
@@ -35,26 +33,26 @@ class CustomGalleryGridView extends StatelessWidget {
           SizedBox(
             height: context.screenHeight * .01,
           ),
-          SizedBox(
-              height: context.screenHeight * .3,
-              child: GridView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: testImgListSrc.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 5,
-                  crossAxisSpacing: 0,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 1,
-                  mainAxisExtent: 70,
-                ),
-                itemBuilder: (context, index) {
-                  return Image.asset(
-                    testImgListSrc[index],
-                    fit: BoxFit.cover,
-                  );
-                },
-              )),
-          Gaps.vGap16,
+          // SizedBox(
+          //     height: context.screenHeight * .3,
+          //     child: GridView.builder(
+          //       physics: const NeverScrollableScrollPhysics(),
+          //       itemCount: testImgListSrc.length,
+          //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //         crossAxisCount: 5,
+          //         crossAxisSpacing: 0,
+          //         mainAxisSpacing: 10,
+          //         childAspectRatio: 1,
+          //         mainAxisExtent: 70,
+          //       ),
+          //       itemBuilder: (context, index) {
+          //         return Image.asset(
+          //           testImgListSrc[index],
+          //           fit: BoxFit.cover,
+          //         );
+          //       },
+          //     )),
+          // Gaps.vGap16,
         ],
       ),
     );
