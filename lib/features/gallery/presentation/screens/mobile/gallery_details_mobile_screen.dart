@@ -8,17 +8,47 @@ class GalleryDetailsMobileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: PhotoViewGallery.builder(
+      body: GridView.builder(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 10,
+        ),
         itemCount: imagesListPath.length,
-        builder: (context, index) {
-          return PhotoViewGalleryPageOptions(
-            imageProvider: AssetImage(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          childAspectRatio: 1,
+          mainAxisExtent: 100,
+        ),
+        itemBuilder: (context, index) {
+          return InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return PhotoViewGallery.builder(
+                      itemCount: imagesListPath.length,
+                      builder: (context, index) {
+                        return PhotoViewGalleryPageOptions(
+                            imageProvider: AssetImage(
+                              imagesListPath[index],
+                            ),
+                            gestureDetectorBehavior: HitTestBehavior.opaque);
+                      },
+                    );
+                  },
+                ),
+              );
+            },
+            child: Image.asset(
               imagesListPath[index],
+              fit: BoxFit.cover,
             ),
-            tightMode: true,
           );
         },
       ),
+      // Gaps.vGap16,
     );
   }
 }
