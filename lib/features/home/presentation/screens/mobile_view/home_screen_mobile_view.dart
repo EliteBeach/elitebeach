@@ -19,6 +19,8 @@ class HomeScreenMobileView extends StatelessWidget {
           int activeIndex =
               BlocProvider.of<BottomNavCubit>(context).activeBottomNavIndex;
           return Scaffold(
+            backgroundColor:
+                activeIndex == 1 ? const Color(0xffB0BDC0) : Colors.white,
             body: BlocBuilder<BottomNavCubit, BottomNavCubitState>(
               builder: (context, state) {
                 return activeIndex == 0

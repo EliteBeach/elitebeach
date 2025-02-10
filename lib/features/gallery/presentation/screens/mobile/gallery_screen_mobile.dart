@@ -13,133 +13,134 @@ class GalleryScreenMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Image.asset(
-          AssetsData.homeImage,
-          opacity: const AlwaysStoppedAnimation(.8),
-          fit: BoxFit.cover,
-          height: context.screenHeight,
-          width: context.screenWidth,
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: context.screenWidth * .05,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FadeIn(
-                duration: const Duration(seconds: 2),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      AssetsData.eliteLogoNoBg,
-                      width: context.screenWidth * .15,
-                      height: context.screenHeight * .15,
-                      color: Colors.white,
-                    ),
-                    const Spacer(),
-                    Text(
-                      context.locale.translate('elite_gallery')!,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: context.screenWidth * .04,
-                      ),
-                    ),
-                    const Spacer(),
-                    InkWell(
-                      onTap: () {
-                        context.locale.isEnLocale
-                            ? BlocProvider.of<LocaleCubit>(context).toArabic()
-                            : BlocProvider.of<LocaleCubit>(context).toEnglish();
-                      },
-                      child: FadeIn(
-                        duration: const Duration(seconds: 2),
-                        child: Container(
-                          padding: EdgeInsets.all(context.screenHeight * .01),
-                          decoration: BoxDecoration(
-                              color: Colors.transparent.withOpacity(
-                                .07,
-                              ),
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Column(
-                            children: [
-                              const Icon(Icons.language_rounded),
-                              SizedBox(
-                                height: context.screenHeight * .01,
-                              ),
-                              Text(
-                                context.locale.isEnLocale ? 'ع' : 'En',
-                                style: TextStyle(
-                                  fontSize: context.screenWidth * .025,
-                                  letterSpacing: context.locale.isEnLocale
-                                      ? context.screenWidth * .005
-                                      : null,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  //  fontFamily: 'EduAUVICWANTPre',
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: context.screenWidth * .05,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FadeIn(
+            duration: const Duration(seconds: 2),
+            child: Row(
+              children: [
+                Image.asset(
+                  AssetsData.eliteLogoNoBg,
+                  width: context.screenWidth * .15,
+                  height: context.screenHeight * .15,
+                  color: Colors.white,
                 ),
-              ),
-              SizedBox(
-                height: context.screenHeight * .03,
-              ),
-              //Images list view
-              SizedBox(
-                height: context.screenHeight * .7,
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      //hotel gallery
-                      CustomGalleryListView(
-                        galleryTitle:
-                            context.locale.translate('elite_hotel_imgs')!,
-                        testImgSrc: AssetsData.pool,
-                      ),
-
-                      CustomGalleryListView(
-                        galleryTitle:
-                            context.locale.translate('elite_challet_imgs')!,
-                        testImgSrc: AssetsData.aboutScreenImg,
-                      ),
-                      CustomGalleryListView(
-                        galleryTitle:
-                            context.locale.translate('elite_studio_imgs')!,
-                        testImgSrc: AssetsData.pool,
-                      ),
-
-                      CustomGalleryListView(
-                        galleryTitle:
-                            context.locale.translate('elite_market_imgs')!,
-                        testImgSrc: AssetsData.aboutScreenImg,
-                      ),
-                      CustomGalleryListView(
-                        galleryTitle:
-                            context.locale.translate('elite_resort_imgs')!,
-                        testImgSrc: AssetsData.pool,
-                      ),
-                    ],
+                const Spacer(),
+                Text(
+                  context.locale.translate('elite_gallery')!,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: context.screenWidth * .04,
                   ),
                 ),
-              ),
-
-              const Spacer(),
-              const BottomNavBar(),
-            ],
+                const Spacer(),
+                InkWell(
+                  onTap: () {
+                    context.locale.isEnLocale
+                        ? BlocProvider.of<LocaleCubit>(context).toArabic()
+                        : BlocProvider.of<LocaleCubit>(context).toEnglish();
+                  },
+                  child: FadeIn(
+                    duration: const Duration(seconds: 2),
+                    child: Container(
+                      padding: EdgeInsets.all(context.screenHeight * .01),
+                      decoration: BoxDecoration(
+                          color: Colors.transparent.withOpacity(
+                            .07,
+                          ),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(
+                        children: [
+                          const Icon(Icons.language_rounded),
+                          SizedBox(
+                            height: context.screenHeight * .01,
+                          ),
+                          Text(
+                            context.locale.isEnLocale ? 'ع' : 'En',
+                            style: TextStyle(
+                              fontSize: context.screenWidth * .025,
+                              letterSpacing: context.locale.isEnLocale
+                                  ? context.screenWidth * .005
+                                  : null,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              //  fontFamily: 'EduAUVICWANTPre',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-      ],
+          SizedBox(
+            height: context.screenHeight * .03,
+          ),
+          //Images list view
+          SizedBox(
+            height: context.screenHeight * .7,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomGalleryGridView(
+                    galleryTitle: context.locale.translate('pool_deck')!,
+                    testImgSrc: AssetsData.pool,
+                  ),
+                  CustomGalleryGridView(
+                    galleryTitle: context.locale.translate('beach')!,
+                    testImgSrc: AssetsData.aboutScreenImg,
+                  ),
+                  CustomGalleryGridView(
+                    galleryTitle: context.locale.translate('hotel')!,
+                    testImgSrc: AssetsData.pool,
+                  ),
+                  CustomGalleryGridView(
+                    galleryTitle: context.locale.translate('chalets')!,
+                    testImgSrc: AssetsData.aboutScreenImg,
+                  ),
+                  CustomGalleryGridView(
+                    galleryTitle: context.locale.translate('studios')!,
+                    testImgSrc: AssetsData.pool,
+                  ),
+                  CustomGalleryGridView(
+                    galleryTitle: context.locale.translate('restaurant')!,
+                    testImgSrc: AssetsData.pool,
+                  ),
+                  CustomGalleryGridView(
+                    galleryTitle: context.locale.translate('super_market')!,
+                    testImgSrc: AssetsData.pool,
+                  ),
+                  CustomGalleryGridView(
+                    galleryTitle: context.locale.translate('arcade_zone')!,
+                    testImgSrc: AssetsData.pool,
+                  ),
+                  CustomGalleryGridView(
+                    galleryTitle: context.locale.translate('kids_Area')!,
+                    testImgSrc: AssetsData.pool,
+                  ),
+                  CustomGalleryGridView(
+                    galleryTitle: context.locale.translate('events')!,
+                    testImgSrc: AssetsData.pool,
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          const Spacer(),
+          const BottomNavBar(),
+        ],
+      ),
     );
   }
 }

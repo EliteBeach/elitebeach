@@ -25,9 +25,8 @@ class BottomNavBar extends StatelessWidget {
             onTap: (value) {
               if (value == 4) {
                 BlocProvider.of<BottomNavCubit>(context).showMore();
-              } else {
-                BlocProvider.of<BottomNavCubit>(context).updateUi(value);
               }
+              BlocProvider.of<BottomNavCubit>(context).updateUi(value);
             },
             type: BottomNavigationBarType.fixed,
             backgroundColor: Colors.transparent,

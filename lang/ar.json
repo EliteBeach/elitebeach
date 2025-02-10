@@ -15,11 +15,16 @@
   "about_txt_1": "تأسست القرية عام 2019",
   "about_txt_2": "تقع في الكيلو 24 طريق العين السخنه السويس",
   "about_txt_3": "إحدى قرى القوات المسلحة المصرية",
-  "elite_gallery": "معرض إيليت",
-  "elite_hotel_imgs": "صور الفندق",
-  "elite_studio_imgs": "صور الاستوديو",
-  "elite_challet_imgs": "صور الشاليه",
-  "elite_market_imgs": "صور الماركت",
-  "elite_resort_imgs": "صور القريه",
-  "elite_units": "الوحدات السكنيه"
+  "elite_gallery": "معرض الصور",
+  "pool_deck": "مسطح حمام السباحه",
+  "beach": "الشاطئ",
+  "hotel": "الفندق",
+  "chalets": "الشاليهات",
+  "studios": "الإستوديوهات",
+  "restaurant": "المطعم",
+  "super_market": "الماركت",
+  "arcade_zone": "منطقة الألعاب الترفيهيه",
+  "kids_Area": "منطفة ألعاب الأطفال",
+  "events": "الأنشطه و الرحلات",
+  "housing": "الإسكان"
 }

@@ -40,7 +40,7 @@ class UnitsScreen extends StatelessWidget {
                     ),
                     const Spacer(),
                     Text(
-                      context.locale.translate('elite_units')!,
+                      context.locale.translate('housing')!,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
