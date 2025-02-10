@@ -63,7 +63,7 @@ class BottomNavBar extends StatelessWidget {
               ),
 
               BottomNavigationBarItem(
-                label: context.locale.translate('units')!,
+                label: context.locale.translate('housing')!,
                 icon: const Icon(
                   Icons.villa_outlined,
                 ),

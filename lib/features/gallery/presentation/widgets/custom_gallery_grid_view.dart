@@ -38,6 +38,7 @@ class CustomGalleryGridView extends StatelessWidget {
           SizedBox(
               height: context.screenHeight * .3,
               child: GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: testImgListSrc.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 5,

@@ -70,21 +70,6 @@ class WelcomeHomeScreenWebBody extends StatelessWidget {
                 child: Column(
                   //  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
-                      context.locale.translate('discover_with_us')!,
-                      style: TextStyle(
-                        fontSize: context.screenWidth * .02,
-                        letterSpacing: context.locale.isEnLocale
-                            ? context.screenWidth * .005
-                            : null,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        // fontFamily: 'EduAUVICWANTPre',
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
                     BlocBuilder<LocaleCubit, LocaleState>(
                       builder: (context, state) {
                         return Text(
@@ -93,7 +78,7 @@ class WelcomeHomeScreenWebBody extends StatelessWidget {
                             letterSpacing: context.locale.isEnLocale
                                 ? context.screenWidth * .005
                                 : null,
-                            fontSize: context.screenWidth * .03,
+                            fontSize: context.screenWidth * .02,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             //  fontFamily: 'EduAUVICWANTPre',
