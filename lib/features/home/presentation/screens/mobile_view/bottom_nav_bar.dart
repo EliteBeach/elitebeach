@@ -25,8 +25,9 @@ class BottomNavBar extends StatelessWidget {
             onTap: (value) {
               if (value == 4) {
                 BlocProvider.of<BottomNavCubit>(context).showMore();
+              } else {
+                BlocProvider.of<BottomNavCubit>(context).updateUi(value);
               }
-              BlocProvider.of<BottomNavCubit>(context).updateUi(value);
             },
             type: BottomNavigationBarType.fixed,
             backgroundColor: Colors.transparent,
@@ -52,16 +53,17 @@ class BottomNavBar extends StatelessWidget {
                   Icons.home_max_rounded,
                 ),
               ),
-              BottomNavigationBarItem(
-                label: context.locale.translate('about')!,
-                icon: const Icon(
-                  Icons.mode_edit_rounded,
-                ),
-              ),
+
               BottomNavigationBarItem(
                 label: context.locale.translate('gallery')!,
                 icon: const Icon(
                   Icons.photo_album_outlined,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: context.locale.translate('facilities')!,
+                icon: const Icon(
+                  Icons.supervised_user_circle_rounded,
                 ),
               ),
               BottomNavigationBarItem(
