@@ -74,6 +74,7 @@ class WelcomeHomeScreenWebBody extends StatelessWidget {
                       builder: (context, state) {
                         return Text(
                           context.locale.translate('welcome_txt')!,
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             letterSpacing: context.locale.isEnLocale
                                 ? context.screenWidth * .005
@@ -81,6 +82,7 @@ class WelcomeHomeScreenWebBody extends StatelessWidget {
                             fontSize: context.screenWidth * .02,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
+
                             //  fontFamily: 'EduAUVICWANTPre',
                           ),
                         );
