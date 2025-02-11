@@ -34,15 +34,18 @@ class CustomHousingItemWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  context.locale.translate(title)!,
-                  style: TextStyle(
-                    fontSize: context.screenWidth * .025,
-                    overflow: TextOverflow.ellipsis,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1,
-                    fontFamily: 'EduAUVICWANTPre',
+                Flexible(
+                  child: Text(
+                    context.locale.translate(title)!,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: context.screenWidth * .035,
+                      // overflow: TextOverflow.ellipsis,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                      fontFamily: 'EduAUVICWANTPre',
+                    ),
                   ),
                 ),
               ],

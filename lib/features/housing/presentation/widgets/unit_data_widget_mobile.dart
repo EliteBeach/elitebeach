@@ -110,7 +110,7 @@ class UnitDataWidgetMobile extends StatelessWidget {
           height: context.screenHeight * .01,
         ),
         Text(
-          (unitData.contents),
+          'demo text for contents..' * 10,
           style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.white,

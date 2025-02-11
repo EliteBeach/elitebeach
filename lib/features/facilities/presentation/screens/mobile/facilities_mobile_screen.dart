@@ -89,7 +89,8 @@ class FacilitiesMobileScreen extends StatelessWidget {
           // Facilities body
           IconButton(
             onPressed: () async {
-              await launchUrl(url, mode: LaunchMode.inAppBrowserView);
+              await launchUrl(url,
+                  mode: LaunchMode.externalNonBrowserApplication);
             },
             icon: const Icon(
               Icons.import_contacts,
