@@ -9,8 +9,8 @@ class CustomHousingItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: context.screenWidth * .4,
-      height: context.screenHeight * .3,
+      // width: context.screenWidth * .4,
+      // height: context.screenHeight * .3,
       child: Stack(
         fit: StackFit.expand,
         alignment: Alignment.bottomCenter,
@@ -23,9 +23,9 @@ class CustomHousingItemWidget extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(
-              top: context.screenHeight * .15,
-            ),
+            // margin: EdgeInsets.only(
+            //   top: context.screenHeight * .15,
+            // ),
             //    height: context.screenHeight * .07,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -37,9 +37,10 @@ class CustomHousingItemWidget extends StatelessWidget {
                 Text(
                   context.locale.translate(title)!,
                   style: TextStyle(
-                    fontSize: context.screenWidth * .028,
+                    fontSize: context.screenWidth * .029,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
+                    letterSpacing: 1,
                     //  fontFamily: 'EduAUVICWANTPre',
                   ),
                 ),

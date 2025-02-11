@@ -2,6 +2,7 @@ import 'package:elite_beach/core/utils/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
+import '../../../../../core/utils/gaps.dart';
 import '../../../data/models/housing_units.dart';
 
 class HousingDetailsScreenMobile extends StatelessWidget {
@@ -21,49 +22,60 @@ class HousingDetailsScreenMobile extends StatelessWidget {
           context.locale.translate(housingUnitModel.title)!,
         ),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: context.screenHeight * .4,
-            child: ListView.builder(
-                itemCount: housingUnitModel.unitImages.length,
-                padding: const EdgeInsetsDirectional.symmetric(horizontal: 8),
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                    ),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return PhotoViewGallery.builder(
-                                itemCount: housingUnitModel.unitImages.length,
-                                builder: (context, index) {
-                                  return PhotoViewGalleryPageOptions(
-                                      imageProvider: AssetImage(
-                                        housingUnitModel.unitImages[index],
-                                      ),
-                                      gestureDetectorBehavior:
-                                          HitTestBehavior.opaque);
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: context.screenHeight * .4,
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: housingUnitModel.unitImages.length,
+                    padding:
+                        const EdgeInsetsDirectional.symmetric(horizontal: 8),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                        ),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return PhotoViewGallery.builder(
+                                    itemCount:
+                                        housingUnitModel.unitImages.length,
+                                    builder: (context, index) {
+                                      return PhotoViewGalleryPageOptions(
+                                          imageProvider: AssetImage(
+                                            housingUnitModel.unitImages[index],
+                                          ),
+                                          gestureDetectorBehavior:
+                                              HitTestBehavior.opaque);
+                                    },
+                                  );
                                 },
-                              );
-                            },
+                              ),
+                            );
+                          },
+                          child: Image.asset(
+                            housingUnitModel.unitImages[index],
+                            fit: BoxFit.cover,
                           ),
-                        );
-                      },
-                      child: Image.asset(
-                        housingUnitModel.unitImages[index],
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  );
-                }),
+                        ),
+                      );
+                    }),
+              ),
+              Gaps.vGap15,
+              const Text('data'),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
