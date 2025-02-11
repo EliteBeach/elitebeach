@@ -17,9 +17,12 @@ class UnitDataWidgetMobile extends StatelessWidget {
           'Price',
           style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.black,
               fontSize: context.screenWidth * .035,
               fontFamily: 'EduAUVICWANTPre'),
+        ),
+        SizedBox(
+          height: context.screenHeight * .005,
         ),
         const Divider(
           color: Colors.white,
@@ -51,18 +54,21 @@ class UnitDataWidgetMobile extends StatelessWidget {
             ),
           ),
         ])
-        // Unit Details and contents
+        // Unit capacity
         ,
         SizedBox(
           height: context.screenHeight * .01,
         ),
         Text(
-          'Details',
+          'Capacity',
           style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.black,
               fontSize: context.screenWidth * .035,
               fontFamily: 'EduAUVICWANTPre'),
+        ),
+        SizedBox(
+          height: context.screenHeight * .005,
         ),
         const Divider(
           color: Colors.white,
@@ -72,12 +78,45 @@ class UnitDataWidgetMobile extends StatelessWidget {
           height: context.screenHeight * .01,
         ),
         Text(
-          'Deluxe chalet available for up to 5 adults and 2 kids under 10 years old , contains master room with king size bed 160 cm and a room with 2 small beds 120 cm , kitchen , bathroom and reception',
+          '5 Adults & 2 Kids under 10 years old',
           style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.white,
               fontSize: context.screenWidth * .035,
               fontFamily: 'EduAUVICWANTPre'),
+        ),
+        SizedBox(
+          height: context.screenHeight * .01,
+        ),
+        Text(
+          'Contents',
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: context.screenWidth * .035,
+              fontFamily: 'EduAUVICWANTPre'),
+        ),
+        SizedBox(
+          height: context.screenHeight * .005,
+        ),
+        const Divider(
+          color: Colors.white,
+          height: 2,
+        ),
+        SizedBox(
+          height: context.screenHeight * .01,
+        ),
+        Text(
+          'Reception , master room , etc ....' * 10,
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontSize: context.screenWidth * .035,
+              fontFamily: 'EduAUVICWANTPre'),
+        ),
+
+        SizedBox(
+          height: context.screenHeight * .05,
         ),
       ],
     );
