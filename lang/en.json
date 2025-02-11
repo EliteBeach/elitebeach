@@ -44,5 +44,10 @@
   "chalet_capacity_txt": "It accommodates up to five adults and two children under the age of eight",
   "double_room_capacity_txt": "It accommodates up to two adults and two children under the age of eight",
   "triple_room_capacity_txt": "It accommodates up to three adults and two children under the age of eight",
-  "studio_capacity_txt": "It accommodates up to two adults and two children under the age of eight"
+  "studio_capacity_txt": "It accommodates up to two adults and two children under the age of eight",
+  "rest_menu": "Restaurant menu",
+  "beverages": "Beverages",
+  "bev_menu": "Beverages menu",
+  "sup_market_subtitle": "Delivery service available from 9 am to 11 pm",
+  "call_now": "Call now"
 }

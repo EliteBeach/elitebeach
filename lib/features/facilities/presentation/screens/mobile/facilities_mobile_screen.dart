@@ -1,9 +1,11 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:elite_beach/core/utils/assets.dart';
+import 'package:elite_beach/core/utils/gaps.dart';
 import 'package:elite_beach/core/utils/helper.dart';
+import 'package:elite_beach/features/facilities/presentation/widgets/custom_facility_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
@@ -87,14 +89,31 @@ class FacilitiesMobileScreen extends StatelessWidget {
             height: context.screenHeight * .03,
           ),
           // Facilities body
-          IconButton(
-            onPressed: () async {
-              await launchUrl(url,
-                  mode: LaunchMode.externalNonBrowserApplication);
+          CustomFacilityItem(
+            iconData: Icons.restaurant_menu_rounded,
+            title: context.locale.translate('restaurant')!,
+            trailing: context.locale.translate('rest_menu')!,
+            tapHandler: () {},
+            iconColor: Colors.green,
+          ),
+          Gaps.vGap10,
+          CustomFacilityItem(
+            iconData: Icons.emoji_food_beverage_sharp,
+            title: context.locale.translate('beverages')!,
+            trailing: context.locale.translate('bev_menu')!,
+            tapHandler: () {},
+            iconColor: Colors.green,
+          ),
+          Gaps.vGap10,
+          CustomFacilityItem(
+            iconData: Icons.shopping_cart_rounded,
+            title: context.locale.translate('super_market')!,
+            subtitle: context.locale.translate('sup_market_subtitle')!,
+            trailing: context.locale.translate('call_now')!,
+            tapHandler: () {
+              launchUrlString("tel://01003783804");
             },
-            icon: const Icon(
-              Icons.import_contacts,
-            ),
+            iconColor: Colors.green,
           ),
           const Spacer(),
           const BottomNavBar(),
