@@ -95,45 +95,65 @@ class GalleryScreenMobile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('pool_deck')!,
-                    testImgListSrc: galleryModel.poolDeckImagesList,
+                  FadeInRight(
+                    child: CustomGalleryItem(
+                      galleryTitle: context.locale.translate('pool_deck')!,
+                      testImgListSrc: galleryModel.poolDeckImagesList,
+                    ),
                   ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('beach')!,
-                    testImgListSrc: galleryModel.beachImagesList,
+                  FadeInLeft(
+                    child: CustomGalleryItem(
+                      galleryTitle: context.locale.translate('beach')!,
+                      testImgListSrc: galleryModel.beachImagesList,
+                    ),
                   ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('hotel')!,
-                    testImgListSrc: galleryModel.hotelImagesList,
+                  FadeInRight(
+                    child: CustomGalleryItem(
+                      galleryTitle: context.locale.translate('hotel')!,
+                      testImgListSrc: galleryModel.hotelImagesList,
+                    ),
                   ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('chalets')!,
-                    testImgListSrc: galleryModel.chaletsImagesList,
+                  FadeInLeft(
+                    child: CustomGalleryItem(
+                      galleryTitle: context.locale.translate('chalets')!,
+                      testImgListSrc: galleryModel.chaletsImagesList,
+                    ),
                   ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('studios')!,
-                    testImgListSrc: galleryModel.studiosImagesList,
+                  FadeInRight(
+                    child: CustomGalleryItem(
+                      galleryTitle: context.locale.translate('studios')!,
+                      testImgListSrc: galleryModel.studiosImagesList,
+                    ),
                   ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('restaurant')!,
-                    testImgListSrc: galleryModel.restaurantImagesList,
+                  FadeInLeft(
+                    child: CustomGalleryItem(
+                      galleryTitle: context.locale.translate('restaurant')!,
+                      testImgListSrc: galleryModel.restaurantImagesList,
+                    ),
                   ),
-                  CustomGalleryItem(
-                    testImgListSrc: galleryModel.superMarketImagesList,
-                    galleryTitle: context.locale.translate('super_market')!,
+                  FadeInRight(
+                    child: CustomGalleryItem(
+                      testImgListSrc: galleryModel.superMarketImagesList,
+                      galleryTitle: context.locale.translate('super_market')!,
+                    ),
                   ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('arcade_zone')!,
-                    testImgListSrc: galleryModel.arcadeZoneImagesList,
+                  FadeInLeft(
+                    child: CustomGalleryItem(
+                      galleryTitle: context.locale.translate('arcade_zone')!,
+                      testImgListSrc: galleryModel.arcadeZoneImagesList,
+                    ),
                   ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('kids_Area')!,
-                    testImgListSrc: galleryModel.kidsAreaImagesList,
+                  FadeInRight(
+                    child: CustomGalleryItem(
+                      galleryTitle: context.locale.translate('kids_Area')!,
+                      testImgListSrc: galleryModel.kidsAreaImagesList,
+                    ),
                   ),
-                  CustomGalleryItem(
-                    galleryTitle: context.locale.translate('events')!,
-                    testImgListSrc: galleryModel.eventsImagesList,
+                  FadeInLeft(
+                    child: CustomGalleryItem(
+                      galleryTitle: context.locale.translate('events')!,
+                      testImgListSrc: galleryModel.eventsImagesList,
+                    ),
                   ),
                 ],
               ),

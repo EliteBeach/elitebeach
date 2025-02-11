@@ -42,7 +42,7 @@ class CustomHousingItemWidget extends StatelessWidget {
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1,
-                    //  fontFamily: 'EduAUVICWANTPre',
+                    fontFamily: 'EduAUVICWANTPre',
                   ),
                 ),
               ],

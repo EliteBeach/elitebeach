@@ -105,11 +105,23 @@ class HousingScreenMobile extends StatelessWidget {
                         arguments:
                             housingUnitDataSource.housingUnitsData[index]);
                   },
-                  child: CustomHousingItemWidget(
-                    title: housingUnitDataSource.housingUnitsData[index].title,
-                    imagePath: housingUnitDataSource
-                        .housingUnitsData[index].gridImagePath,
-                  ),
+                  child: index % 2 == 0
+                      ? FadeInDown(
+                          child: CustomHousingItemWidget(
+                            title: housingUnitDataSource
+                                .housingUnitsData[index].title,
+                            imagePath: housingUnitDataSource
+                                .housingUnitsData[index].gridImagePath,
+                          ),
+                        )
+                      : FadeInUp(
+                          child: CustomHousingItemWidget(
+                            title: housingUnitDataSource
+                                .housingUnitsData[index].title,
+                            imagePath: housingUnitDataSource
+                                .housingUnitsData[index].gridImagePath,
+                          ),
+                        ),
                 );
               },
             ),

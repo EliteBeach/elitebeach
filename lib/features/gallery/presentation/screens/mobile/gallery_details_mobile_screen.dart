@@ -27,15 +27,25 @@ class GalleryDetailsMobileScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return PhotoViewGallery.builder(
-                      itemCount: imagesListPath.length,
-                      builder: (context, index) {
-                        return PhotoViewGalleryPageOptions(
-                            imageProvider: AssetImage(
-                              imagesListPath[index],
-                            ),
-                            gestureDetectorBehavior: HitTestBehavior.opaque);
-                      },
+                    return Stack(
+                      children: [
+                        PhotoViewGallery.builder(
+                          itemCount: imagesListPath.length,
+                          builder: (context, index) {
+                            return PhotoViewGalleryPageOptions(
+                                imageProvider: AssetImage(
+                                  imagesListPath[index],
+                                ),
+                                gestureDetectorBehavior:
+                                    HitTestBehavior.opaque);
+                          },
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: const Icon(Icons.arrow_back)),
+                      ],
                     );
                   },
                 ),
