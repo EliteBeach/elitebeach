@@ -33,5 +33,16 @@
   "sea_view_triple_room": "Sea & pool view triple room",
   "sea_view_double_room": "Sea & pool view double room",
   "side_view_double_room": "Side view double room",
-  "back_view_double_room": "Back view double room"
+  "back_view_double_room": "Back view double room",
+  "price": "Price",
+  "capacity": "Capacity",
+  "contents": "Contents",
+  "egp": "EGP",
+  "civilian": "Civilian",
+  "military": "Military",
+  "e_w_h": "Electronic war house",
+  "chalet_capacity_txt": "It accommodates up to five adults and two children under the age of eight",
+  "double_room_capacity_txt": "It accommodates up to two adults and two children under the age of eight",
+  "triple_room_capacity_txt": "It accommodates up to three adults and two children under the age of eight",
+  "studio_capacity_txt": "It accommodates up to two adults and two children under the age of eight"
 }

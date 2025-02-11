@@ -9,16 +9,16 @@ class CustomPriceItem extends StatelessWidget {
     required this.price,
     required this.priceType,
   });
-  final int price;
+  final String price;
   final String priceType;
 
   @override
   Widget build(BuildContext context) {
     return ElasticInUp(
       child: Card(
-        color: priceType == 'Civilian'
+        color: priceType == context.locale.translate('civilian')
             ? Colors.white
-            : priceType == 'Military'
+            : priceType == context.locale.translate('military')
                 ? Colors.green[100]
                 : Colors.green[200],
         child: Padding(
@@ -34,7 +34,7 @@ class CustomPriceItem extends StatelessWidget {
                 ),
               ),
               Gaps.vGap10,
-              Text("$price  EGP"),
+              Text("$price  ${context.locale.translate('egp')}"),
             ],
           ),
         ),

@@ -33,5 +33,16 @@
   "sea_view_triple_room": "غرفه ثلاثيه أماميه",
   "sea_view_double_room": "غرفه ثنائيه أماميه",
   "side_view_double_room": "غرفه ثنائيه جانبيه",
-  "back_view_double_room": "غرفه ثنائيه خلفيه"
+  "back_view_double_room": "غرفه ثنائيه خلفيه",
+  "price": "السعر",
+  "capacity": "السعه",
+  "contents": "المحتويات",
+  "egp": "ج.م",
+  "civilian": "مدنى",
+  "military": "عسكرى",
+  "e_w_h": "عضو دار الحرب الإلكترونية",
+  "chalet_capacity_txt": "يسع حتى 5 أفراد بالغين و طفلين تحت سن 8 سنوات",
+  "double_room_capacity_txt": "يسع حتى فردين بالغين و طفلين تحت سن 8 سنوات",
+  "triple_room_capacity_txt": "يسع حتى 3 أفراد بالغين و طفلين تحت سن 8 سنوات",
+  "studio_capacity_txt": "يسع حتى فردين بالغين و طفلين تحت سن 8 سنوات"
 }

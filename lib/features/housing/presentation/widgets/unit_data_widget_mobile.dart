@@ -2,9 +2,11 @@ import 'package:elite_beach/core/utils/helper.dart';
 import 'package:elite_beach/features/housing/presentation/widgets/custom_price_item.dart';
 import 'package:flutter/material.dart';
 
-class UnitDataWidgetMobile extends StatelessWidget {
-  const UnitDataWidgetMobile({super.key});
+import '../../data/models/housing_units.dart';
 
+class UnitDataWidgetMobile extends StatelessWidget {
+  const UnitDataWidgetMobile({super.key, required this.unitData});
+  final HousingUnitModel unitData;
   @override
   Widget build(
     BuildContext context,
@@ -14,7 +16,7 @@ class UnitDataWidgetMobile extends StatelessWidget {
       children: [
         // UNIT PRICES ROW
         Text(
-          'Price',
+          context.locale.translate('price')!,
           style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,
@@ -31,90 +33,90 @@ class UnitDataWidgetMobile extends StatelessWidget {
         SizedBox(
           height: context.screenHeight * .01,
         ),
-        const Row(children: [
+
+        Row(children: [
           Expanded(
             flex: 4,
             child: CustomPriceItem(
-              price: 2000,
-              priceType: 'Civilian',
+              price: unitData.civilianPrice,
+              priceType: context.locale.translate('civilian')!,
             ),
           ),
           Expanded(
             flex: 4,
             child: CustomPriceItem(
-              price: 1600,
-              priceType: 'Military',
+              price: unitData.militaryPrice,
+              priceType: context.locale.translate('military')!,
             ),
           ),
           Expanded(
             flex: 5,
             child: CustomPriceItem(
-              price: 1000,
-              priceType: 'Electronic War House',
+              price: unitData.ewhPrice,
+              priceType: context.locale.translate('e_w_h')!,
             ),
           ),
-        ])
+        ]),
         // Unit capacity
-        ,
-        SizedBox(
-          height: context.screenHeight * .01,
-        ),
-        Text(
-          'Capacity',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-              fontSize: context.screenWidth * .035,
-              fontFamily: 'EduAUVICWANTPre'),
-        ),
-        SizedBox(
-          height: context.screenHeight * .005,
-        ),
-        const Divider(
-          color: Colors.white,
-          height: 2,
-        ),
-        SizedBox(
-          height: context.screenHeight * .01,
-        ),
-        Text(
-          '5 Adults & 2 Kids under 10 years old',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: context.screenWidth * .035,
-              fontFamily: 'EduAUVICWANTPre'),
-        ),
-        SizedBox(
-          height: context.screenHeight * .01,
-        ),
-        Text(
-          'Contents',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-              fontSize: context.screenWidth * .035,
-              fontFamily: 'EduAUVICWANTPre'),
-        ),
-        SizedBox(
-          height: context.screenHeight * .005,
-        ),
-        const Divider(
-          color: Colors.white,
-          height: 2,
-        ),
-        SizedBox(
-          height: context.screenHeight * .01,
-        ),
-        Text(
-          'Reception , master room , etc ....' * 10,
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: context.screenWidth * .035,
-              fontFamily: 'EduAUVICWANTPre'),
-        ),
 
+        SizedBox(
+          height: context.screenHeight * .01,
+        ),
+        Text(
+          context.locale.translate('capacity')!,
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: context.screenWidth * .035,
+              fontFamily: 'EduAUVICWANTPre'),
+        ),
+        SizedBox(
+          height: context.screenHeight * .005,
+        ),
+        const Divider(
+          color: Colors.white,
+          height: 2,
+        ),
+        SizedBox(
+          height: context.screenHeight * .01,
+        ),
+        Text(
+          context.locale.translate(unitData.capacity)!,
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontSize: context.screenWidth * .035,
+              fontFamily: 'EduAUVICWANTPre'),
+        ),
+        SizedBox(
+          height: context.screenHeight * .01,
+        ),
+        Text(
+          context.locale.translate('contents')!,
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: context.screenWidth * .035,
+              fontFamily: 'EduAUVICWANTPre'),
+        ),
+        SizedBox(
+          height: context.screenHeight * .005,
+        ),
+        const Divider(
+          color: Colors.white,
+          height: 2,
+        ),
+        SizedBox(
+          height: context.screenHeight * .01,
+        ),
+        Text(
+          (unitData.contents),
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontSize: context.screenWidth * .035,
+              fontFamily: 'EduAUVICWANTPre'),
+        ),
         SizedBox(
           height: context.screenHeight * .05,
         ),

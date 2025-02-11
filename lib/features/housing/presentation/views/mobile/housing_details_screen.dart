@@ -138,7 +138,9 @@ class HousingDetailsScreenMobile extends StatelessWidget {
                     }),
               ),
               Gaps.vGap15,
-              const UnitDataWidgetMobile()
+              UnitDataWidgetMobile(
+                unitData: housingUnitModel,
+              )
             ],
           ),
         ),
