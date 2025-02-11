@@ -67,7 +67,7 @@ class HousingDetailsScreenMobile extends StatelessWidget {
         title: Text(
           context.locale.translate(housingUnitModel.title)!,
           style: TextStyle(
-            fontSize: context.screenWidth * .028,
+            fontSize: context.screenWidth * .04,
             overflow: TextOverflow.ellipsis,
             color: Colors.black,
             fontWeight: FontWeight.bold,

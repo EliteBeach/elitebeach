@@ -33,21 +33,21 @@ class UnitDataWidgetMobile extends StatelessWidget {
         ),
         const Row(children: [
           Expanded(
-            flex: 2,
+            flex: 4,
             child: CustomPriceItem(
               price: 2000,
               priceType: 'Civilian',
             ),
           ),
           Expanded(
-            flex: 2,
+            flex: 4,
             child: CustomPriceItem(
               price: 1600,
               priceType: 'Military',
             ),
           ),
           Expanded(
-            flex: 3,
+            flex: 5,
             child: CustomPriceItem(
               price: 1000,
               priceType: 'Electronic War House',
