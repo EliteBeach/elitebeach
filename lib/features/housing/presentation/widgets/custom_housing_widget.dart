@@ -37,7 +37,8 @@ class CustomHousingItemWidget extends StatelessWidget {
                 Text(
                   context.locale.translate(title)!,
                   style: TextStyle(
-                    fontSize: context.screenWidth * .029,
+                    fontSize: context.screenWidth * .025,
+                    overflow: TextOverflow.ellipsis,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1,

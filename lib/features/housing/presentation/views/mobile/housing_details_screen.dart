@@ -20,6 +20,14 @@ class HousingDetailsScreenMobile extends StatelessWidget {
         centerTitle: true,
         title: Text(
           context.locale.translate(housingUnitModel.title)!,
+          style: TextStyle(
+            fontSize: context.screenWidth * .028,
+            overflow: TextOverflow.ellipsis,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1,
+            //  fontFamily: 'EduAUVICWANTPre',
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -33,8 +41,9 @@ class HousingDetailsScreenMobile extends StatelessWidget {
                 child: ListView.builder(
                     shrinkWrap: true,
                     itemCount: housingUnitModel.unitImages.length,
-                    padding:
-                        const EdgeInsetsDirectional.symmetric(horizontal: 8),
+                    padding: EdgeInsetsDirectional.only(
+                        start: context.locale.isEnLocale ? 0 : 10,
+                        end: !context.locale.isEnLocale ? 0 : 10),
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return Padding(
@@ -47,17 +56,29 @@ class HousingDetailsScreenMobile extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return PhotoViewGallery.builder(
-                                    itemCount:
-                                        housingUnitModel.unitImages.length,
-                                    builder: (context, index) {
-                                      return PhotoViewGalleryPageOptions(
-                                          imageProvider: AssetImage(
-                                            housingUnitModel.unitImages[index],
-                                          ),
-                                          gestureDetectorBehavior:
-                                              HitTestBehavior.opaque);
-                                    },
+                                  return Stack(
+                                    children: [
+                                      PhotoViewGallery.builder(
+                                        // enableRotation: true,
+
+                                        itemCount:
+                                            housingUnitModel.unitImages.length,
+                                        builder: (context, index) {
+                                          return PhotoViewGalleryPageOptions(
+                                              imageProvider: AssetImage(
+                                                housingUnitModel
+                                                    .unitImages[index],
+                                              ),
+                                              gestureDetectorBehavior:
+                                                  HitTestBehavior.opaque);
+                                        },
+                                      ),
+                                      IconButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          icon: const Icon(Icons.arrow_back)),
+                                    ],
                                   );
                                 },
                               ),
