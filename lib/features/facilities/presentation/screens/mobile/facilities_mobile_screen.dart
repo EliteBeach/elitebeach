@@ -3,6 +3,7 @@ import 'package:elite_beach/core/utils/assets.dart';
 import 'package:elite_beach/core/utils/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
@@ -12,6 +13,7 @@ class FacilitiesMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Uri url = Uri.parse('https://flutter.dev');
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: context.screenWidth * .05,
@@ -84,8 +86,15 @@ class FacilitiesMobileScreen extends StatelessWidget {
           SizedBox(
             height: context.screenHeight * .03,
           ),
-          //Images list view
-
+          // Facilities body
+          IconButton(
+            onPressed: () async {
+              await launchUrl(url, mode: LaunchMode.inAppBrowserView);
+            },
+            icon: const Icon(
+              Icons.import_contacts,
+            ),
+          ),
           const Spacer(),
           const BottomNavBar(),
         ],
