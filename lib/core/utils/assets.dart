@@ -8,6 +8,7 @@ class AssetsData {
   static const aboutScreenBg = '${pathImage}about_screen_bg.jpg';
   static const aboutScreenImg = '${pathImage}about_img.webp';
   static const testHousing1 = '${pathImage}housing1.jpg';
+  static const teleDir = '${pathImage}tele_dir.png';
 
 //pool
   static const pool = '${pathImage}pool/pool.jpg';

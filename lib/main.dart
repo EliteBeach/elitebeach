@@ -10,6 +10,7 @@ void main() async {
   // SystemChrome.setPreferredOrientations(
   //     [DeviceOrientation.portraitUp] // Disable upside down
   //     );
+  WidgetsFlutterBinding.ensureInitialized();
 
   Bloc.observer = SimpleBlocObserver();
   await di.init();

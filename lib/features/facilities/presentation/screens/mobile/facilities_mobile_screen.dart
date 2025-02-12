@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import '../../../../../core/utils/functions/fetch_images_cloudinary_function.dart';
 import '../../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
 
@@ -15,7 +16,8 @@ class FacilitiesMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Uri url = Uri.parse('https://flutter.dev');
+    final List<String> images = [];
+
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: context.screenWidth * .05,
@@ -93,7 +95,19 @@ class FacilitiesMobileScreen extends StatelessWidget {
             iconData: Icons.restaurant_menu_rounded,
             title: context.locale.translate('restaurant')!,
             trailing: context.locale.translate('rest_menu')!,
-            tapHandler: () {},
+            tapHandler: () async {
+              await fetchImages(folderName: 'test')
+                  .then((value) => images.addAll(value));
+              showDialog(
+                  context: context,
+                  builder: (ctx) {
+                    return Dialog(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Image.network(images[0]),
+                    );
+                  });
+            },
             iconColor: Colors.green,
           ),
           Gaps.vGap10,
@@ -101,7 +115,9 @@ class FacilitiesMobileScreen extends StatelessWidget {
             iconData: Icons.emoji_food_beverage_sharp,
             title: context.locale.translate('beverages')!,
             trailing: context.locale.translate('bev_menu')!,
-            tapHandler: () {},
+            tapHandler: () {
+              launchUrlString("https://imgur.com/a/xYettxr");
+            },
             iconColor: Colors.green,
           ),
           Gaps.vGap10,
@@ -112,6 +128,24 @@ class FacilitiesMobileScreen extends StatelessWidget {
             trailing: context.locale.translate('call_now')!,
             tapHandler: () {
               launchUrlString("tel://01003783804");
+            },
+            iconColor: Colors.green,
+          ),
+          Gaps.vGap10,
+          CustomFacilityItem(
+            iconData: Icons.call,
+            title: context.locale.translate('tele_dir')!,
+            trailing: context.locale.translate('rest_menu')!,
+            tapHandler: () {
+              showDialog(
+                  context: context,
+                  builder: (ctx) {
+                    return Dialog(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Image.asset(AssetsData.teleDir),
+                    );
+                  });
             },
             iconColor: Colors.green,
           ),
