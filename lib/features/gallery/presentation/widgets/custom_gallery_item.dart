@@ -3,23 +3,24 @@ import 'package:elite_beach/core/utils/helper.dart';
 import 'package:flutter/material.dart';
 
 class CustomGalleryItem extends StatelessWidget {
-  const CustomGalleryItem(
-      {super.key, required this.galleryTitle, required this.testImgListSrc});
+  const CustomGalleryItem({
+    super.key,
+    required this.galleryTitle,
+  });
   final String galleryTitle;
-  final List<String> testImgListSrc;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, kGalleryDetailsMobileScreenRoute,
-            arguments: testImgListSrc);
+            arguments: galleryTitle);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            galleryTitle,
+            context.locale.translate(galleryTitle)!,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.white,

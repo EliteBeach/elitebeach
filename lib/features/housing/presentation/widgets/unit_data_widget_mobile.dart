@@ -5,8 +5,17 @@ import 'package:flutter/material.dart';
 import '../../data/models/housing_units.dart';
 
 class UnitDataWidgetMobile extends StatelessWidget {
-  const UnitDataWidgetMobile({super.key, required this.unitData});
+  const UnitDataWidgetMobile(
+      {super.key,
+      required this.unitData,
+      required this.price0,
+      required this.price1,
+      required this.price2});
   final HousingUnitModel unitData;
+  final String price0;
+  final String price1;
+  final String price2;
+
   @override
   Widget build(
     BuildContext context,
@@ -38,21 +47,21 @@ class UnitDataWidgetMobile extends StatelessWidget {
           Expanded(
             flex: 4,
             child: CustomPriceItem(
-              price: unitData.civilianPrice,
+              price: price0,
               priceType: context.locale.translate('civilian')!,
             ),
           ),
           Expanded(
             flex: 4,
             child: CustomPriceItem(
-              price: unitData.militaryPrice,
+              price: price1,
               priceType: context.locale.translate('military')!,
             ),
           ),
           Expanded(
             flex: 5,
             child: CustomPriceItem(
-              price: unitData.ewhPrice,
+              price: price2,
               priceType: context.locale.translate('e_w_h')!,
             ),
           ),

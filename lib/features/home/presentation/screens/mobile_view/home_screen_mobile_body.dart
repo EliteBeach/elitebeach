@@ -5,8 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
-import '../../manager/cubit/bottom_nav_cubit_cubit.dart';
-import '../../widgets/bottom_nav_more_item.dart';
 import 'bottom_nav_bar.dart';
 
 class HomeScreenMobileBody extends StatelessWidget {
@@ -104,47 +102,46 @@ class HomeScreenMobileBody extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(
-                height: context.screenHeight * .05,
-              ),
-              Column(
-                children: [
-                  BlocBuilder<BottomNavCubit, BottomNavCubitState>(
-                    builder: (context, state) {
-                      return BlocProvider.of<BottomNavCubit>(context).isActive
-                          ? FadeInUp(
-                              duration: const Duration(seconds: 1),
-                              child: Column(
-                                children: [
-                                  BottomNavMoreItem(
-                                    icon: Icons.local_offer_rounded,
-                                    iconName:
-                                        context.locale.translate('offers')!,
-                                  ),
-                                  BottomNavMoreItem(
-                                    icon: Icons.restaurant_rounded,
-                                    iconName:
-                                        context.locale.translate('rest&bar')!,
-                                  ),
-                                  BottomNavMoreItem(
-                                    icon: Icons.supervised_user_circle_rounded,
-                                    iconName:
-                                        context.locale.translate('facilities')!,
-                                  ),
-                                  BottomNavMoreItem(
-                                    icon: Icons.event_available_rounded,
-                                    iconName: context.locale
-                                        .translate('weeding&events')!,
-                                  ),
-                                ],
-                              ),
-                            )
-                          : const SizedBox();
-                    },
-                  ),
-                  const BottomNavBar(),
-                ],
-              ),
+
+              const BottomNavBar(),
+              // Column(
+              //   children: [
+              //     BlocBuilder<BottomNavCubit, BottomNavCubitState>(
+              //       builder: (context, state) {
+              //         return BlocProvider.of<BottomNavCubit>(context).isActive
+              //             ? FadeInUp(
+              //                 duration: const Duration(seconds: 1),
+              //                 child: Column(
+              //                   children: [
+              //                     BottomNavMoreItem(
+              //                       icon: Icons.local_offer_rounded,
+              //                       iconName:
+              //                           context.locale.translate('offers')!,
+              //                     ),
+              //                     BottomNavMoreItem(
+              //                       icon: Icons.restaurant_rounded,
+              //                       iconName:
+              //                           context.locale.translate('rest&bar')!,
+              //                     ),
+              //                     BottomNavMoreItem(
+              //                       icon: Icons.supervised_user_circle_rounded,
+              //                       iconName:
+              //                           context.locale.translate('facilities')!,
+              //                     ),
+              //                     BottomNavMoreItem(
+              //                       icon: Icons.event_available_rounded,
+              //                       iconName: context.locale
+              //                           .translate('weeding&events')!,
+              //                     ),
+              //                   ],
+              //                 ),
+              //               )
+              //             : const SizedBox();
+              //       },
+              //     ),
+
+              //   ],
+              // ),
             ],
           ),
         ),

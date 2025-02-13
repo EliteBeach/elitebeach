@@ -1,13 +1,14 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:elite_beach/core/utils/helper.dart';
-import 'package:elite_beach/features/housing/presentation/widgets/unit_data_widget_mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:photo_view/photo_view_gallery.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../../../core/utils/gaps.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
 import '../../../data/models/housing_units.dart';
+import '../../widgets/unit_data_widget_mobile.dart';
 
 class HousingDetailsScreenMobile extends StatelessWidget {
   const HousingDetailsScreenMobile({
@@ -17,6 +18,10 @@ class HousingDetailsScreenMobile extends StatelessWidget {
   final HousingUnitModel housingUnitModel;
   @override
   Widget build(BuildContext context) {
+    //fetch prices
+    SupabaseStreamFilterBuilder pricesTable =
+        Supabase.instance.client.from('prices').stream(primaryKey: ['id']);
+
     return Scaffold(
       backgroundColor: const Color(0xffB0BDC0),
       appBar: AppBar(
@@ -138,8 +143,18 @@ class HousingDetailsScreenMobile extends StatelessWidget {
                     }),
               ),
               Gaps.vGap15,
-              UnitDataWidgetMobile(
-                unitData: housingUnitModel,
+              StreamBuilder(
+                stream: pricesTable,
+                builder: (context, snapshot) {
+                  return snapshot.data == null
+                      ? const Center(child: CircularProgressIndicator())
+                      : UnitDataWidgetMobile(
+                          unitData: housingUnitModel,
+                          price0: snapshot.data![0][housingUnitModel.title],
+                          price1: snapshot.data![1][housingUnitModel.title],
+                          price2: snapshot.data![2][housingUnitModel.title],
+                        );
+                },
               )
             ],
           ),
@@ -147,4 +162,14 @@ class HousingDetailsScreenMobile extends StatelessWidget {
       ),
     );
   }
+
+//  Future< List<String>> fetchPrices() async {
+//     final supabase = Supabase.instance.client;
+
+//     final response = supabase
+//         .from('prices')
+//         .stream(primaryKey: ['back_view_room']); // Fetch all columns
+
+//     return response;
+//   }
 }

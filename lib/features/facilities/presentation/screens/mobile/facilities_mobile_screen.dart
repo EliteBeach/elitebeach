@@ -5,9 +5,9 @@ import 'package:elite_beach/core/utils/helper.dart';
 import 'package:elite_beach/features/facilities/presentation/widgets/custom_facility_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-import '../../../../../core/utils/functions/fetch_images_cloudinary_function.dart';
 import '../../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
 
@@ -16,8 +16,6 @@ class FacilitiesMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> images = [];
-
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: context.screenWidth * .05,
@@ -96,15 +94,35 @@ class FacilitiesMobileScreen extends StatelessWidget {
             title: context.locale.translate('restaurant')!,
             trailing: context.locale.translate('rest_menu')!,
             tapHandler: () async {
-              await fetchImages(folderName: 'test')
-                  .then((value) => images.addAll(value));
+              // await Supabase.instance.client.from('test').insert({
+              //   "images": "https://i.imgur.com/eBYOqcS.png",
+              //   "type": "gfgf"
+              // });
+
+              SupabaseStreamFilterBuilder imagesList = Supabase.instance.client
+                  .from('test')
+                  .stream(primaryKey: ['images']);
+              print(imagesList);
               showDialog(
                   context: context,
                   builder: (ctx) {
                     return Dialog(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
-                      child: Image.network(images[0]),
+                      child: StreamBuilder(
+                        stream: imagesList,
+                        builder: (context, snapshot) {
+                          return snapshot.data == null
+                              ? const CircularProgressIndicator()
+                              : ListView.builder(
+                                  itemCount: snapshot.data!.length,
+                                  itemBuilder: (context, index) {
+                                    return Image.network(
+                                        snapshot.data![index]['images']);
+                                  },
+                                );
+                        },
+                      ),
                     );
                   });
             },
@@ -135,7 +153,7 @@ class FacilitiesMobileScreen extends StatelessWidget {
           CustomFacilityItem(
             iconData: Icons.call,
             title: context.locale.translate('tele_dir')!,
-            trailing: context.locale.translate('rest_menu')!,
+            trailing: '',
             tapHandler: () {
               showDialog(
                   context: context,

@@ -3,18 +3,15 @@ import 'package:elite_beach/core/utils/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/utils/assets.dart';
-import '../../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
-import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
-import '../../../data/models/gallery_model.dart';
-import '../../widgets/custom_gallery_item.dart';
+import '../../../../core/utils/assets.dart';
+import '../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
+import '../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
 
-class GalleryScreenMobile extends StatelessWidget {
-  const GalleryScreenMobile({super.key});
+class MoreScreenMobile extends StatelessWidget {
+  const MoreScreenMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
-    GalleryModel galleryModel = GalleryModel();
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: context.screenWidth * .05,
@@ -35,7 +32,7 @@ class GalleryScreenMobile extends StatelessWidget {
                 ),
                 const Spacer(),
                 Text(
-                  context.locale.translate('elite_gallery')!,
+                  context.locale.translate('more')!,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
@@ -87,69 +84,6 @@ class GalleryScreenMobile extends StatelessWidget {
           SizedBox(
             height: context.screenHeight * .03,
           ),
-          //Images list view
-          SizedBox(
-            height: context.screenHeight * .7,
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  FadeInRight(
-                    child: const CustomGalleryItem(
-                      galleryTitle: ('pool_deck'),
-                    ),
-                  ),
-                  FadeInLeft(
-                    child: const CustomGalleryItem(
-                      galleryTitle: ('beach'),
-                    ),
-                  ),
-                  FadeInRight(
-                    child: const CustomGalleryItem(
-                      galleryTitle: ('hotel'),
-                    ),
-                  ),
-                  FadeInLeft(
-                    child: const CustomGalleryItem(
-                      galleryTitle: ('chalets'),
-                    ),
-                  ),
-                  FadeInRight(
-                    child: const CustomGalleryItem(
-                      galleryTitle: ('studios'),
-                    ),
-                  ),
-                  FadeInLeft(
-                    child: const CustomGalleryItem(
-                      galleryTitle: ('restaurant'),
-                    ),
-                  ),
-                  FadeInRight(
-                    child: const CustomGalleryItem(
-                      galleryTitle: ('super_market'),
-                    ),
-                  ),
-                  FadeInLeft(
-                    child: const CustomGalleryItem(
-                      galleryTitle: ('arcade_zone'),
-                    ),
-                  ),
-                  FadeInRight(
-                    child: const CustomGalleryItem(
-                      galleryTitle: ('kids_Area'),
-                    ),
-                  ),
-                  FadeInLeft(
-                    child: const CustomGalleryItem(
-                      galleryTitle: ('events'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-
           const Spacer(),
           const BottomNavBar(),
         ],

@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/functions/setup_service_locator.dart';
 import '../../../../facilities/presentation/screens/mobile/facilities_mobile_screen.dart';
+import '../../../../more/presentation/screens/more_screen_mobile.dart';
 import 'home_screen_mobile_body.dart';
 
 class HomeScreenMobileView extends StatelessWidget {
@@ -32,7 +33,7 @@ class HomeScreenMobileView extends StatelessWidget {
                             ? const HousingScreenMobile()
                             : activeIndex == 3
                                 ? const FacilitiesMobileScreen()
-                                : const HomeScreenMobileBody();
+                                : const MoreScreenMobile();
               },
             ),
           );

@@ -23,12 +23,7 @@ class BottomNavBar extends StatelessWidget {
             currentIndex:
                 BlocProvider.of<BottomNavCubit>(context).activeBottomNavIndex,
             onTap: (value) {
-              if (value == 4) {
-                BlocProvider.of<BottomNavCubit>(context).showMore();
-              } else {
-                BlocProvider.of<BottomNavCubit>(context).hideShowMore();
-                BlocProvider.of<BottomNavCubit>(context).updateUi(value);
-              }
+              BlocProvider.of<BottomNavCubit>(context).updateUi(value);
             },
             type: BottomNavigationBarType.fixed,
             backgroundColor: Colors.transparent,
@@ -99,19 +94,10 @@ class BottomNavBar extends StatelessWidget {
               //   ),
               // ),
               BottomNavigationBarItem(
-                label: context.locale.translate('more'),
-                icon: BlocBuilder<BottomNavCubit, BottomNavCubitState>(
-                  builder: (context, state) {
-                    return !BlocProvider.of<BottomNavCubit>(context).isActive
-                        ? const Icon(
-                            Icons.arrow_upward_outlined,
-                          )
-                        : const Icon(
-                            Icons.arrow_downward_outlined,
-                          );
-                  },
-                ),
-              ),
+                  label: context.locale.translate('more'),
+                  icon: const Icon(
+                    Icons.more_vert_rounded,
+                  )),
             ],
           ),
         );

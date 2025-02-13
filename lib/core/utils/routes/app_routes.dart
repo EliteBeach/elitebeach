@@ -15,10 +15,10 @@ class AppRoutes {
       case initialRoute:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case kGalleryDetailsMobileScreenRoute:
-        List<String> args = routeSettings.arguments as List<String>;
+        String args = routeSettings.arguments as String;
         return MaterialPageRoute(
           builder: (_) => GalleryDetailsMobileScreen(
-            imagesListPath: args,
+            galleryTitle: args,
           ),
         );
       case kHousingDetailsMobileScreenRoute:
