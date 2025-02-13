@@ -99,31 +99,33 @@ class FacilitiesMobileScreen extends StatelessWidget {
               //   "type": "gfgf"
               // });
 
-              SupabaseStreamFilterBuilder imagesList = Supabase.instance.client
-                  .from('test')
-                  .stream(primaryKey: ['images']);
-              print(imagesList);
+              // SupabaseStreamFilterBuilder imagesList = Supabase.instance.client
+              //     .from('test')
+              //     .stream(primaryKey: ['images']);
+              // print(imagesList);
               showDialog(
                   context: context,
                   builder: (ctx) {
                     return Dialog(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      child: StreamBuilder(
-                        stream: imagesList,
-                        builder: (context, snapshot) {
-                          return snapshot.data == null
-                              ? const CircularProgressIndicator()
-                              : ListView.builder(
-                                  itemCount: snapshot.data!.length,
-                                  itemBuilder: (context, index) {
-                                    return Image.network(
-                                        snapshot.data![index]['images']);
-                                  },
-                                );
-                        },
-                      ),
-                    );
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Image.network('https://i.imgur.com/eBYOqcS.png')
+                        //  StreamBuilder(
+                        //   stream: imagesList,
+                        //   builder: (context, snapshot) {
+                        //     return snapshot.data == null
+                        //         ? const CircularProgressIndicator()
+                        //         : ListView.builder(
+                        //             itemCount: snapshot.data!.length,
+                        //             itemBuilder: (context, index) {
+                        //               return Image.network(
+                        //                   snapshot.data![index]['images']);
+                        //             },
+                        //           );
+                        //   },
+                        // ),
+
+                        );
                   });
             },
             iconColor: Colors.green,
@@ -133,8 +135,49 @@ class FacilitiesMobileScreen extends StatelessWidget {
             iconData: Icons.emoji_food_beverage_sharp,
             title: context.locale.translate('beverages')!,
             trailing: context.locale.translate('bev_menu')!,
-            tapHandler: () {
-              launchUrlString("https://imgur.com/a/xYettxr");
+            tapHandler: () async {
+              SupabaseStreamFilterBuilder barMenu = Supabase.instance.client
+                  .from('images')
+                  .stream(primaryKey: ['id']);
+              showDialog(
+                  context: context,
+                  builder: (ctx) {
+                    return Dialog(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        child: StreamBuilder(
+                          stream: barMenu,
+                          builder: (context, snapshot) {
+                            return snapshot.data == null
+                                ? const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Text('Loading . . '),
+                                  )
+                                : ListView.builder(
+                                    itemCount: snapshot.data!.length,
+                                    itemBuilder: (context, index) {
+                                      return snapshot.data![index]['bar_menu']
+                                                  .toString() ==
+                                              ''
+                                          ? const SizedBox()
+                                          : Padding(
+                                              padding: const EdgeInsets.only(
+                                                  bottom: 8),
+                                              child: Image.network(
+                                                snapshot.data![index]
+                                                    ['bar_menu'],
+                                                errorBuilder: (context, error,
+                                                    stackTrace) {
+                                                  return const Text(
+                                                      'Invalid Image');
+                                                },
+                                              ),
+                                            );
+                                    },
+                                  );
+                          },
+                        ));
+                  });
             },
             iconColor: Colors.green,
           ),
