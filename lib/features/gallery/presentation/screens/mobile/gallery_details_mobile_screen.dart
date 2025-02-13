@@ -52,8 +52,7 @@ class GalleryDetailsMobileScreen extends StatelessWidget {
                                                     return PhotoViewGalleryPageOptions(
                                                         errorBuilder: (context,
                                                             error, stackTrace) {
-                                                          return const Text(
-                                                              'Invalid Image');
+                                                          return const Text('');
                                                         },
                                                         imageProvider:
                                                             NetworkImage(
@@ -85,8 +84,7 @@ class GalleryDetailsMobileScreen extends StatelessWidget {
                                       fit: BoxFit.cover,
                                       errorBuilder:
                                           (context, error, stackTrace) {
-                                        return const Center(
-                                            child: Text('Invalid Image'));
+                                        return const Center(child: Text(''));
                                       },
                                     ),
                             );

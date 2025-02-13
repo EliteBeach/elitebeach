@@ -137,8 +137,7 @@ class FacilitiesMobileScreen extends StatelessWidget {
                                                         ['rest_menu'],
                                                     errorBuilder: (context,
                                                         error, stackTrace) {
-                                                      return const Text(
-                                                          'Invalid Image');
+                                                      return const Text('');
                                                     },
                                                   ),
                                                 );
@@ -197,8 +196,7 @@ class FacilitiesMobileScreen extends StatelessWidget {
                                                         ['bar_menu'],
                                                     errorBuilder: (context,
                                                         error, stackTrace) {
-                                                      return const Text(
-                                                          'Invalid Image');
+                                                      return const Text('');
                                                     },
                                                   ),
                                                 );
