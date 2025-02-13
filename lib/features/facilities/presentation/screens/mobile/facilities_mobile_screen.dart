@@ -99,7 +99,7 @@ class FacilitiesMobileScreen extends StatelessWidget {
               //   "type": "gfgf"
               // });
               SupabaseStreamFilterBuilder barMenu = Supabase.instance.client
-                  .from('images')
+                  .from('gallery_images')
                   .stream(primaryKey: ['id']);
               showDialog(
                   context: context,
@@ -157,7 +157,7 @@ class FacilitiesMobileScreen extends StatelessWidget {
             trailing: context.locale.translate('bev_menu')!,
             tapHandler: () async {
               SupabaseStreamFilterBuilder barMenu = Supabase.instance.client
-                  .from('images')
+                  .from('gallery_images')
                   .stream(primaryKey: ['id']);
               showDialog(
                   context: context,

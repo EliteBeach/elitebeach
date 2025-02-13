@@ -9,8 +9,9 @@ class GalleryDetailsMobileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //fetch images
-    SupabaseStreamFilterBuilder imagesTable =
-        Supabase.instance.client.from('images').stream(primaryKey: ['id']);
+    SupabaseStreamFilterBuilder imagesTable = Supabase.instance.client
+        .from('gallery_images')
+        .stream(primaryKey: ['id']);
     return Scaffold(
       appBar: AppBar(),
       body: StreamBuilder(
