@@ -98,34 +98,57 @@ class FacilitiesMobileScreen extends StatelessWidget {
               //   "images": "https://i.imgur.com/eBYOqcS.png",
               //   "type": "gfgf"
               // });
-
-              // SupabaseStreamFilterBuilder imagesList = Supabase.instance.client
-              //     .from('test')
-              //     .stream(primaryKey: ['images']);
-              // print(imagesList);
+              SupabaseStreamFilterBuilder barMenu = Supabase.instance.client
+                  .from('images')
+                  .stream(primaryKey: ['id']);
               showDialog(
                   context: context,
                   builder: (ctx) {
                     return Dialog(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
-                        child: Image.network('https://i.imgur.com/eBYOqcS.png')
-                        //  StreamBuilder(
-                        //   stream: imagesList,
-                        //   builder: (context, snapshot) {
-                        //     return snapshot.data == null
-                        //         ? const CircularProgressIndicator()
-                        //         : ListView.builder(
-                        //             itemCount: snapshot.data!.length,
-                        //             itemBuilder: (context, index) {
-                        //               return Image.network(
-                        //                   snapshot.data![index]['images']);
-                        //             },
-                        //           );
-                        //   },
-                        // ),
-
-                        );
+                        child: StreamBuilder(
+                          stream: barMenu,
+                          builder: (context, snapshot) {
+                            return snapshot.connectionState ==
+                                    ConnectionState.waiting
+                                ? const Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Text('Loading . . '),
+                                  )
+                                : (snapshot.connectionState ==
+                                            ConnectionState.active &&
+                                        snapshot.data![0]['rest_menu'] == null)
+                                    ? const Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text('Error'),
+                                      )
+                                    : ListView.builder(
+                                        itemCount: snapshot.data!.length,
+                                        itemBuilder: (context, index) {
+                                          return snapshot.data![index]
+                                                          ['rest_menu']
+                                                      .toString() ==
+                                                  ''
+                                              ? const SizedBox()
+                                              : Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          bottom: 8),
+                                                  child: Image.network(
+                                                    snapshot.data![index]
+                                                        ['rest_menu'],
+                                                    errorBuilder: (context,
+                                                        error, stackTrace) {
+                                                      return const Text(
+                                                          'Invalid Image');
+                                                    },
+                                                  ),
+                                                );
+                                        },
+                                      );
+                          },
+                        ));
                   });
             },
             iconColor: Colors.green,
@@ -148,33 +171,43 @@ class FacilitiesMobileScreen extends StatelessWidget {
                         child: StreamBuilder(
                           stream: barMenu,
                           builder: (context, snapshot) {
-                            return snapshot.data == null
+                            return snapshot.connectionState ==
+                                    ConnectionState.waiting
                                 ? const Padding(
                                     padding: EdgeInsets.all(8.0),
                                     child: Text('Loading . . '),
                                   )
-                                : ListView.builder(
-                                    itemCount: snapshot.data!.length,
-                                    itemBuilder: (context, index) {
-                                      return snapshot.data![index]['bar_menu']
-                                                  .toString() ==
-                                              ''
-                                          ? const SizedBox()
-                                          : Padding(
-                                              padding: const EdgeInsets.only(
-                                                  bottom: 8),
-                                              child: Image.network(
-                                                snapshot.data![index]
-                                                    ['bar_menu'],
-                                                errorBuilder: (context, error,
-                                                    stackTrace) {
-                                                  return const Text(
-                                                      'Invalid Image');
-                                                },
-                                              ),
-                                            );
-                                    },
-                                  );
+                                : (snapshot.connectionState ==
+                                            ConnectionState.active &&
+                                        snapshot.data![0]['bar_menu'] == null)
+                                    ? const Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text('Error'),
+                                      )
+                                    : ListView.builder(
+                                        itemCount: snapshot.data!.length,
+                                        itemBuilder: (context, index) {
+                                          return snapshot.data![index]
+                                                          ['bar_menu']
+                                                      .toString() ==
+                                                  ''
+                                              ? const SizedBox()
+                                              : Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          bottom: 8),
+                                                  child: Image.network(
+                                                    snapshot.data![index]
+                                                        ['bar_menu'],
+                                                    errorBuilder: (context,
+                                                        error, stackTrace) {
+                                                      return const Text(
+                                                          'Invalid Image');
+                                                    },
+                                                  ),
+                                                );
+                                        },
+                                      );
                           },
                         ));
                   });
