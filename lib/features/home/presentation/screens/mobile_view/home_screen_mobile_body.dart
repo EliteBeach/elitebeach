@@ -1,10 +1,12 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:elite_beach/core/utils/gaps.dart';
 import 'package:elite_beach/core/utils/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
+import '../../widgets/video_player_widget.dart';
 import 'bottom_nav_bar.dart';
 
 class HomeScreenMobileBody extends StatelessWidget {
@@ -102,7 +104,17 @@ class HomeScreenMobileBody extends StatelessWidget {
                   )
                 ],
               ),
-
+              const Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  SizedBox(
+                      width: context.screenWidth * .6,
+                      height: context.screenHeight * .2,
+                      child: const ChewieDemo()),
+                ],
+              ),
+              Gaps.vGap10,
               const BottomNavBar(),
               // Column(
               //   children: [

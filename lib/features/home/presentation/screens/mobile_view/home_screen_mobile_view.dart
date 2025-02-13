@@ -1,12 +1,12 @@
 import 'package:elite_beach/features/gallery/presentation/screens/mobile/gallery_screen_mobile.dart';
 import 'package:elite_beach/features/home/presentation/manager/cubit/bottom_nav_cubit_cubit.dart';
 import 'package:elite_beach/features/housing/presentation/views/mobile/housing_screen_mobile.dart';
+import 'package:elite_beach/features/more/presentation/screens/more_screen_mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/functions/setup_service_locator.dart';
 import '../../../../facilities/presentation/screens/mobile/facilities_mobile_screen.dart';
-import '../../../../more/presentation/screens/more_screen_mobile.dart';
 import 'home_screen_mobile_body.dart';
 
 class HomeScreenMobileView extends StatelessWidget {
