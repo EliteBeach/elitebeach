@@ -47,21 +47,21 @@ class UnitDataWidgetMobile extends StatelessWidget {
           Expanded(
             flex: 4,
             child: CustomPriceItem(
-              price: price0,
+              price: price2,
               priceType: context.locale.translate('civilian')!,
             ),
           ),
           Expanded(
             flex: 4,
             child: CustomPriceItem(
-              price: price1,
+              price: price0,
               priceType: context.locale.translate('military')!,
             ),
           ),
           Expanded(
             flex: 5,
             child: CustomPriceItem(
-              price: price2,
+              price: price1,
               priceType: context.locale.translate('e_w_h')!,
             ),
           ),
@@ -101,7 +101,7 @@ class UnitDataWidgetMobile extends StatelessWidget {
           height: context.screenHeight * .01,
         ),
         Text(
-          context.locale.translate('contents')!,
+          context.locale.translate('description')!,
           style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.black,
@@ -118,14 +118,21 @@ class UnitDataWidgetMobile extends StatelessWidget {
         SizedBox(
           height: context.screenHeight * .01,
         ),
-        Text(
-          'demo text for contents..' * 10,
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: context.screenWidth * .035,
-              fontFamily: 'EduAUVICWANTPre'),
-        ),
+
+        Column(
+            children: unitData.description.map((e) {
+          return ListTile(
+            title: Text(
+              context.locale.translate(e['title'])!,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: context.screenWidth * .035,
+                  fontFamily: 'EduAUVICWANTPre'),
+            ),
+            leading: Icon(e['icon']),
+          );
+        }).toList()),
         SizedBox(
           height: context.screenHeight * .05,
         ),

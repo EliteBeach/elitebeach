@@ -92,7 +92,7 @@ class FacilitiesMobileScreen extends StatelessWidget {
           CustomFacilityItem(
             iconData: Icons.restaurant_menu_rounded,
             title: context.locale.translate('restaurant')!,
-            trailing: context.locale.translate('rest_menu')!,
+            trailing: context.locale.translate('menu')!,
             tapHandler: () async {
               // await Supabase.instance.client.from('test').insert({
               //   "images": "https://i.imgur.com/eBYOqcS.png",
@@ -153,7 +153,7 @@ class FacilitiesMobileScreen extends StatelessWidget {
           CustomFacilityItem(
             iconData: Icons.emoji_food_beverage_sharp,
             title: context.locale.translate('beverages')!,
-            trailing: context.locale.translate('bev_menu')!,
+            trailing: context.locale.translate('menu')!,
             tapHandler: () async {
               SupabaseStreamFilterBuilder barMenu = Supabase.instance.client
                   .from('gallery_images')

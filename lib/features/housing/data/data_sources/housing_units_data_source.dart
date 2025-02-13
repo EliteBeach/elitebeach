@@ -1,4 +1,5 @@
 import 'package:elite_beach/core/utils/assets.dart';
+import 'package:flutter/material.dart';
 
 import '../models/housing_units.dart';
 
@@ -18,9 +19,40 @@ class HousingUnitDataSource {
         AssetsData.testHousing1,
         AssetsData.pool,
       ],
-      civilianPrice: '2000',
-      militaryPrice: '1600',
-      ewhPrice: '1200',
+      description: [
+        {
+          'title': 'deluxe_bedding',
+          'icon': Icons.bed,
+        },
+        {
+          'title': 'sofa_bed',
+          'icon': Icons.chair_rounded,
+        },
+        {
+          'title': 'size',
+          'icon': Icons.aspect_ratio_rounded,
+        },
+        {
+          'title': 'private_bathroom',
+          'icon': Icons.shower_rounded,
+        },
+        {
+          'title': 'air_conditioning',
+          'icon': Icons.air_rounded,
+        },
+        {
+          'title': 'panoramic_balcony',
+          'icon': Icons.remove_red_eye_rounded,
+        },
+        {
+          'title': 'flat_screen_tv',
+          'icon': Icons.tv_rounded,
+        },
+        {
+          'title': 'american_kitchen',
+          'icon': Icons.kitchen_rounded,
+        },
+      ],
     ),
     HousingUnitModel(
       id: 1,
@@ -29,9 +61,40 @@ class HousingUnitDataSource {
       capacity: 'chalet_capacity_txt',
       contents: '',
       unitImages: [],
-      civilianPrice: '1800',
-      militaryPrice: '1400',
-      ewhPrice: '1000',
+      description: [
+        {
+          'title': 'standard_chalet_bedding',
+          'icon': Icons.bed,
+        },
+        {
+          'title': 'sofa_bed',
+          'icon': Icons.chair_rounded,
+        },
+        {
+          'title': 'size',
+          'icon': Icons.aspect_ratio_rounded,
+        },
+        {
+          'title': 'private_bathroom',
+          'icon': Icons.shower_rounded,
+        },
+        {
+          'title': 'air_conditioning',
+          'icon': Icons.air_rounded,
+        },
+        {
+          'title': 'walk_in_balcony',
+          'icon': Icons.remove_red_eye_rounded,
+        },
+        {
+          'title': 'flat_screen_tv',
+          'icon': Icons.tv_rounded,
+        },
+        {
+          'title': 'american_kitchen',
+          'icon': Icons.kitchen_rounded,
+        },
+      ],
     ),
     HousingUnitModel(
       id: 2,
@@ -40,9 +103,36 @@ class HousingUnitDataSource {
       capacity: 'studio_capacity_txt',
       contents: '',
       unitImages: [],
-      civilianPrice: '1400',
-      militaryPrice: '1100',
-      ewhPrice: '900',
+      description: [
+        {
+          'title': 'studio_bedding',
+          'icon': Icons.bed,
+        },
+        {
+          'title': 'size',
+          'icon': Icons.aspect_ratio_rounded,
+        },
+        {
+          'title': 'private_bathroom',
+          'icon': Icons.shower_rounded,
+        },
+        {
+          'title': 'air_conditioning',
+          'icon': Icons.air_rounded,
+        },
+        {
+          'title': 'walk_in_balcony',
+          'icon': Icons.remove_red_eye_rounded,
+        },
+        {
+          'title': 'flat_screen_tv',
+          'icon': Icons.tv_rounded,
+        },
+        {
+          'title': 'kitchenette',
+          'icon': Icons.kitchen_rounded,
+        },
+      ],
     ),
     HousingUnitModel(
       id: 3,
@@ -51,9 +141,32 @@ class HousingUnitDataSource {
       capacity: 'triple_room_capacity_txt',
       contents: '',
       unitImages: [],
-      civilianPrice: '1600',
-      militaryPrice: '1300',
-      ewhPrice: '1100',
+      description: [
+        {
+          'title': 'triple_room_bedding',
+          'icon': Icons.bed,
+        },
+        {
+          'title': 'size',
+          'icon': Icons.aspect_ratio_rounded,
+        },
+        {
+          'title': 'private_bathroom',
+          'icon': Icons.shower_rounded,
+        },
+        {
+          'title': 'air_conditioning',
+          'icon': Icons.air_rounded,
+        },
+        {
+          'title': 'balcony',
+          'icon': Icons.remove_red_eye_rounded,
+        },
+        {
+          'title': 'flat_screen_tv',
+          'icon': Icons.tv_rounded,
+        },
+      ],
     ),
     HousingUnitModel(
       id: 4,
@@ -62,9 +175,32 @@ class HousingUnitDataSource {
       capacity: 'double_room_capacity_txt',
       contents: '',
       unitImages: [],
-      civilianPrice: '1400',
-      militaryPrice: '1100',
-      ewhPrice: '900',
+      description: [
+        {
+          'title': 'sea_double_room_bedding',
+          'icon': Icons.bed,
+        },
+        {
+          'title': 'size',
+          'icon': Icons.aspect_ratio_rounded,
+        },
+        {
+          'title': 'private_bathroom',
+          'icon': Icons.shower_rounded,
+        },
+        {
+          'title': 'air_conditioning',
+          'icon': Icons.air_rounded,
+        },
+        {
+          'title': 'balcony',
+          'icon': Icons.remove_red_eye_rounded,
+        },
+        {
+          'title': 'flat_screen_tv',
+          'icon': Icons.tv_rounded,
+        },
+      ],
     ),
     HousingUnitModel(
       id: 5,
@@ -73,9 +209,32 @@ class HousingUnitDataSource {
       capacity: 'double_room_capacity_txt',
       contents: '',
       unitImages: [],
-      civilianPrice: '1200',
-      militaryPrice: '900',
-      ewhPrice: '800',
+      description: [
+        {
+          'title': 'side_double_room_bedding',
+          'icon': Icons.bed,
+        },
+        {
+          'title': 'size',
+          'icon': Icons.aspect_ratio_rounded,
+        },
+        {
+          'title': 'private_bathroom',
+          'icon': Icons.shower_rounded,
+        },
+        {
+          'title': 'air_conditioning',
+          'icon': Icons.air_rounded,
+        },
+        {
+          'title': 'balcony',
+          'icon': Icons.remove_red_eye_rounded,
+        },
+        {
+          'title': 'flat_screen_tv',
+          'icon': Icons.tv_rounded,
+        },
+      ],
     ),
     HousingUnitModel(
       id: 6,
@@ -84,9 +243,28 @@ class HousingUnitDataSource {
       capacity: 'double_room_capacity_txt',
       contents: '',
       unitImages: [],
-      civilianPrice: '900',
-      militaryPrice: '800',
-      ewhPrice: '700',
+      description: [
+        {
+          'title': 'back_double_room_bedding',
+          'icon': Icons.bed,
+        },
+        {
+          'title': 'size',
+          'icon': Icons.aspect_ratio_rounded,
+        },
+        {
+          'title': 'private_bathroom',
+          'icon': Icons.shower_rounded,
+        },
+        {
+          'title': 'air_conditioning',
+          'icon': Icons.air_rounded,
+        },
+        {
+          'title': 'flat_screen_tv',
+          'icon': Icons.tv_rounded,
+        },
+      ],
     ),
   ];
 }

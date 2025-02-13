@@ -1,12 +1,10 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:elite_beach/core/utils/gaps.dart';
 import 'package:elite_beach/core/utils/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
-import '../../widgets/video_player_widget.dart';
 import 'bottom_nav_bar.dart';
 
 class HomeScreenMobileBody extends StatelessWidget {
@@ -25,7 +23,7 @@ class HomeScreenMobileBody extends StatelessWidget {
         Positioned(
           left: 0,
           right: 0,
-          top: context.screenHeight * .5,
+          top: context.screenHeight * .3,
           bottom: 0,
           child: FadeIn(
             duration: const Duration(seconds: 3),
@@ -63,7 +61,7 @@ class HomeScreenMobileBody extends StatelessWidget {
                     height: context.screenHeight * .15,
                     color: Colors.white,
                   ),
-                  const Spacer(),
+                  //  const Spacer(),
                   InkWell(
                     onTap: () {
                       context.locale.isEnLocale
@@ -105,16 +103,16 @@ class HomeScreenMobileBody extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  SizedBox(
-                      width: context.screenWidth * .6,
-                      height: context.screenHeight * .2,
-                      child: const ChewieDemo()),
-                ],
-              ),
-              Gaps.vGap10,
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.end,
+              //   children: [
+              //     SizedBox(
+              //         width: context.screenWidth * .6,
+              //         height: context.screenHeight * .2,
+              //         child: const ChewieDemo()),
+              //   ],
+              // ),
+              // Gaps.vGap10,
               const BottomNavBar(),
               // Column(
               //   children: [
