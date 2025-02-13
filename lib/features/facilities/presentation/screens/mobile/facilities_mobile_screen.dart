@@ -116,9 +116,7 @@ class FacilitiesMobileScreen extends StatelessWidget {
                                     padding: EdgeInsets.all(8.0),
                                     child: Text('Loading . . '),
                                   )
-                                : (snapshot.connectionState ==
-                                            ConnectionState.active &&
-                                        snapshot.data![0]['rest_menu'] == null)
+                                : (snapshot.data![0]['rest_menu'] == null)
                                     ? const Padding(
                                         padding: EdgeInsets.all(8.0),
                                         child: Text('Error'),
@@ -127,9 +125,8 @@ class FacilitiesMobileScreen extends StatelessWidget {
                                         itemCount: snapshot.data!.length,
                                         itemBuilder: (context, index) {
                                           return snapshot.data![index]
-                                                          ['rest_menu']
-                                                      .toString() ==
-                                                  ''
+                                                      ['rest_menu'] ==
+                                                  null
                                               ? const SizedBox()
                                               : Padding(
                                                   padding:
@@ -188,9 +185,8 @@ class FacilitiesMobileScreen extends StatelessWidget {
                                         itemCount: snapshot.data!.length,
                                         itemBuilder: (context, index) {
                                           return snapshot.data![index]
-                                                          ['bar_menu']
-                                                      .toString() ==
-                                                  ''
+                                                      ['bar_menu'] ==
+                                                  null
                                               ? const SizedBox()
                                               : Padding(
                                                   padding:

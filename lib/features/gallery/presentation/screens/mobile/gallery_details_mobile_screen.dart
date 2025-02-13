@@ -37,49 +37,57 @@ class GalleryDetailsMobileScreen extends StatelessWidget {
                           ? const SizedBox()
                           : InkWell(
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) {
-                                      return Stack(
-                                        children: [
-                                          PhotoViewGallery.builder(
-                                            itemCount: snapshot.data!.length,
-                                            builder: (context, index) {
-                                              return PhotoViewGalleryPageOptions(
-                                                  errorBuilder: (context, error,
-                                                      stackTrace) {
-                                                    return const Text(
-                                                        'Invalid Image');
+                                snapshot.data![index][galleryTitle] != null
+                                    ? Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) {
+                                            return Stack(
+                                              children: [
+                                                PhotoViewGallery.builder(
+                                                  itemCount:
+                                                      snapshot.data!.length,
+                                                  builder: (context, index) {
+                                                    return PhotoViewGalleryPageOptions(
+                                                        errorBuilder: (context,
+                                                            error, stackTrace) {
+                                                          return const Text(
+                                                              'Invalid Image');
+                                                        },
+                                                        imageProvider:
+                                                            NetworkImage(
+                                                          snapshot.data![index]
+                                                              [galleryTitle],
+                                                        ),
+                                                        gestureDetectorBehavior:
+                                                            HitTestBehavior
+                                                                .opaque);
                                                   },
-                                                  imageProvider: NetworkImage(
-                                                    snapshot.data![index]
-                                                        [galleryTitle],
-                                                  ),
-                                                  gestureDetectorBehavior:
-                                                      HitTestBehavior.opaque);
-                                            },
-                                          ),
-                                          IconButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              icon:
-                                                  const Icon(Icons.arrow_back)),
-                                        ],
-                                      );
-                                    },
-                                  ),
-                                );
+                                                ),
+                                                IconButton(
+                                                    onPressed: () {
+                                                      Navigator.pop(context);
+                                                    },
+                                                    icon: const Icon(
+                                                        Icons.arrow_back)),
+                                              ],
+                                            );
+                                          },
+                                        ),
+                                      )
+                                    : null;
                               },
-                              child: Image.network(
-                                snapshot.data![index][galleryTitle],
-                                fit: BoxFit.cover,
-                                errorBuilder: (context, error, stackTrace) {
-                                  return const Center(
-                                      child: Text('Invalid Image'));
-                                },
-                              ),
+                              child: snapshot.data![index][galleryTitle] == null
+                                  ? const SizedBox()
+                                  : Image.network(
+                                      snapshot.data![index][galleryTitle],
+                                      fit: BoxFit.cover,
+                                      errorBuilder:
+                                          (context, error, stackTrace) {
+                                        return const Center(
+                                            child: Text('Invalid Image'));
+                                      },
+                                    ),
                             );
                     },
                   );
