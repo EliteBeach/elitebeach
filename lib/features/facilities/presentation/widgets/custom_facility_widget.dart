@@ -34,7 +34,7 @@ class CustomFacilityWidget extends StatelessWidget {
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   crossAxisSpacing: 0,
-                  childAspectRatio: 3,
+                  childAspectRatio: 2,
                   mainAxisSpacing: 0,
                 ),
                 itemBuilder: (context, index) {
