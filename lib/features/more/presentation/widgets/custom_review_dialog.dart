@@ -17,81 +17,84 @@ class CustomReviewDialog extends StatelessWidget {
       ),
       child: Form(
         key: formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextFormField(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter value';
-                }
-                return null;
-              },
-              controller: nameController,
-              decoration: InputDecoration(
-                labelText: 'Name',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter value';
+                  }
+                  return null;
+                },
+                controller: nameController,
+                decoration: InputDecoration(
+                  labelText: 'Name',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                 ),
               ),
-            ),
-            Gaps.vGap30,
-            TextFormField(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter value';
-                }
-                return null;
-              },
-              controller: phoneController,
-              decoration: InputDecoration(
-                labelText: 'Phone',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
+              Gaps.vGap30,
+              TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter value';
+                  }
+                  return null;
+                },
+                controller: phoneController,
+                decoration: InputDecoration(
+                  labelText: 'Phone',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                 ),
               ),
-            ),
-            Gaps.vGap30,
-            TextFormField(
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter value';
-                }
-                return null;
-              },
-              controller: reviewMessageController,
-              maxLines: 4,
-              decoration: InputDecoration(
-                labelText: 'Review',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
+              Gaps.vGap30,
+              TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter value';
+                  }
+                  return null;
+                },
+                controller: reviewMessageController,
+                maxLines: 4,
+                decoration: InputDecoration(
+                  labelText: 'Review',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                 ),
               ),
-            ),
-            Gaps.vGap30,
-            Gaps.vGap30,
-            ElevatedButton(
-              onPressed: () async {
-                await Supabase.instance.client.from('reviews').insert({
-                  "name": nameController.text,
-                  "phone": phoneController.text,
-                  "review_message": reviewMessageController.text,
-                }).then(
-                  (value) {
-                    Navigator.pop(context);
-                  },
-                );
-                if (formKey.currentState!.validate()) {
-                  formKey.currentState!.save();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text('Your review has been sent , Thanks !')),
-                  );
-                }
-              },
-              child: const Text('Send'),
-            ),
-          ],
+              Gaps.vGap30,
+              Gaps.vGap30,
+              ElevatedButton(
+                onPressed: () async {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    await Supabase.instance.client.from('reviews').insert({
+                      "name": nameController.text,
+                      "phone": phoneController.text,
+                      "review_message": reviewMessageController.text,
+                    }).then(
+                      (value) {
+                        Navigator.pop(context);
+                      },
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                          content:
+                              Text('Your review has been sent , Thanks !')),
+                    );
+                  }
+                },
+                child: const Text('Send'),
+              ),
+            ],
+          ),
         ),
       ),
     );

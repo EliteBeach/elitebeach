@@ -18,3 +18,7 @@ final class BottomNavChanged extends BottomNavCubitState {
   final int bottomNavActiveIndex = 0;
   const BottomNavChanged(bottomNavActiveIndex);
 }
+
+final class ChangeDateState extends BottomNavCubitState {
+  const ChangeDateState();
+}

@@ -8,27 +8,18 @@ class BottomNavCubit extends Cubit<BottomNavCubitState> {
   BottomNavCubit() : super(BottomNavCubitActivate());
   bool isActive = false;
   int activeBottomNavIndex = 0;
-  // void showMore() {
-  //   emit(const BottomNavCubitInitial());
-  //   if (isActive) {
-  //     isActive = false;
-  //     emit(const BottomNavCubitInitial());
-  //   } else {
-  //     isActive = true;
-  //     emit(BottomNavCubitActivate());
-  //   }
-  // }
-
-  // void hideShowMore() {
-  //   if (isActive) {
-  //     isActive = false;
-  //     emit(const BottomNavCubitInitial());
-  //   }
-  // }
+  String startDate = '';
+  String endDate = '';
 
   void updateUi(int index) {
     emit(const BottomNavCubitInitial());
     activeBottomNavIndex = index;
     emit(BottomNavChanged(activeBottomNavIndex));
+  }
+
+  void updateDateUi({required String selectedDate, required bool isStart}) {
+    emit(const BottomNavCubitInitial());
+    isStart ? startDate = selectedDate : endDate = selectedDate;
+    emit(const ChangeDateState());
   }
 }
