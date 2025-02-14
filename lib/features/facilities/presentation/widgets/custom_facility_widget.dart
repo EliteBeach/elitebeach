@@ -43,6 +43,7 @@ class CustomFacilityWidget extends StatelessWidget {
                     children: [
                       Icon(
                         facilities.facilitiesData[index].facilityIcon,
+                        color: Colors.green[500],
                       ),
                       Gaps.hGap5,
                       Flexible(

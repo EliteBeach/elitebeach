@@ -9,7 +9,7 @@ class HousingUnitDataSource {
       id: 0,
       title: 'deluxe_chalet',
       gridImagePath: AssetsData.testHousing1,
-      capacity: 'chalet_capacity_txt',
+      capacity: 'deluxe_chalet_capacity_txt',
       contents: '',
       unitImages: [
         AssetsData.testHousing1,

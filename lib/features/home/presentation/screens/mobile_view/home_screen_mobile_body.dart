@@ -1,5 +1,7 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:elite_beach/core/utils/gaps.dart';
 import 'package:elite_beach/core/utils/helper.dart';
+import 'package:elite_beach/features/home/presentation/widgets/custom_reservation_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -42,6 +44,27 @@ class HomeScreenMobileBody extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
+                Gaps.vGap30,
+                ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return const Dialog(
+                          backgroundColor: Color(0xffB0BDC0),
+                          child: CustomReservationDialog(),
+                        );
+                      },
+                    );
+                  },
+                  child: const Text(
+                    'BOOK NOW !',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'EduAUVICWANTPre',
+                    ),
+                  ),
+                )
               ],
             ),
           ),
