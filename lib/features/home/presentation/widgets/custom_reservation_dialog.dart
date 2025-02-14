@@ -81,135 +81,49 @@ class CustomReservationDialog extends StatelessWidget {
               ),
               Gaps.vGap30,
               //Adults Num
-              TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter value';
-                  }
-                  return null;
-                },
-                controller: adultsNumController,
-                decoration: InputDecoration(
-                  labelText: 'Adults Number',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter value';
+                        }
+                        return null;
+                      },
+                      controller: adultsNumController,
+                      decoration: InputDecoration(
+                        labelText: 'Adults Number',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Gaps.vGap30,
-              //Kids Num
-              TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter value';
-                  }
-                  return null;
-                },
-                controller: kidsNumController,
-                decoration: InputDecoration(
-                  labelText: 'Kids Number',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
+                  Gaps.hGap20,
+                  //Kids Num
+                  Expanded(
+                    child: TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter value';
+                        }
+                        return null;
+                      },
+                      controller: kidsNumController,
+                      decoration: InputDecoration(
+                        labelText: 'Kids Number',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
               //Dates
               Gaps.vGap30,
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.start,
-              //   children: [
-              //     //Start Date
-              //     TextButton(
-              //       style: const ButtonStyle(
-              //         backgroundColor: WidgetStatePropertyAll(
-              //           Colors.white,
-              //         ),
-              //       ),
-              //       onPressed: () {
-              //         showDatePicker(
-              //           context: context,
-              //           firstDate: DateTime.now(),
-              //           lastDate: DateTime(
-              //             2100,
-              //           ),
-              //         ).then(
-              //           (value) {
-              //             if (value != null) {
-              //               String formatted =
-              //                   DateFormat("yyyy-MM-dd").format(value);
-              //               BlocProvider.of<BottomNavCubit>(context)
-              //                   .updateDateUi(
-              //                       selectedDate: formatted, isStart: true);
-              //               // BlocProvider.of<BottomNavCubit>(context).startDate =
-              //               //     formatted;
-              //             }
-              //           },
-              //         );
-              //       },
-              //       child: const Text(
-              //         'Start date',
-              //         style: TextStyle(
-              //           color: Colors.black,
-              //           fontWeight: FontWeight.bold,
-              //           fontFamily: 'EduAUVICWANTPre',
-              //         ),
-              //       ),
-              //     ),
-              //     Gaps.hGap10,
-              //     Expanded(
-              //       child: BlocBuilder<BottomNavCubit, BottomNavCubitState>(
-              //         builder: (context, state) {
-              //           return Text(
-              //               BlocProvider.of<BottomNavCubit>(context).startDate);
-              //         },
-              //       ),
-              //     ),
-              //     //End Date
-              //     // TextButton(
-              //     //   style: const ButtonStyle(
-              //     //     backgroundColor: WidgetStatePropertyAll(
-              //     //       Colors.white,
-              //     //     ),
-              //     //   ),
-              //     //   onPressed: () {
-              //     //     showDatePicker(
-              //     //       context: context,
-              //     //       firstDate: DateTime.now(),
-              //     //       lastDate: DateTime(
-              //     //         2100,
-              //     //       ),
-              //     //     ).then(
-              //     //       (value) {
-              //     //         // String formated =
-              //     //         //     DateFormat("yyyy-MM-dd").format(value!);
-              //     //         // endDate = formated;
-              //     //       },
-              //     //     );
-              //     //   },
-              //     //   child: const Text(
-              //     //     'End date',
-              //     //     style: TextStyle(
-              //     //       color: Colors.black,
-              //     //       fontWeight: FontWeight.bold,
-              //     //       fontFamily: 'EduAUVICWANTPre',
-              //     //     ),
-              //     //   ),
-              //     // ),
-              //     // Gaps.hGap10,
-              //     // Expanded(
-              //     //   child: BlocBuilder<BottomNavCubit, BottomNavCubitState>(
-              //     //     builder: (context, state) {
-              //     //       if (state is ChangeDateState) {
-              //     //         return Text(
-              //     //             BlocProvider.of<BottomNavCubit>(context).endDate);
-              //     //       } else {
-              //     //         return const Text('      -          -');
-              //     //       }
-              //     //     },
-              //     //   ),
-              //     // ),
-              //   ],
-              // ),
+
               Row(
                 children: [
                   Expanded(
