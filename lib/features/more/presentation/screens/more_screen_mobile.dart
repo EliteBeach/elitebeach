@@ -7,9 +7,9 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../../core/utils/assets.dart';
 import '../../../../core/utils/gaps.dart';
-import '../../../facilities/presentation/widgets/custom_facility_item.dart';
 import '../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
 import '../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
+import '../widgets/custom_more_item.dart';
 
 class MoreScreenMobile extends StatelessWidget {
   const MoreScreenMobile({super.key});
@@ -94,7 +94,7 @@ class MoreScreenMobile extends StatelessWidget {
             child: ListView(
               shrinkWrap: true,
               children: [
-                CustomFacilityItem(
+                CustomMoreItem(
                   iconData: Icons.restaurant_rounded,
                   title: context.locale.translate('restaurant')!,
                   trailingIcon: Icons.menu_book_rounded,
@@ -160,7 +160,7 @@ class MoreScreenMobile extends StatelessWidget {
                 ),
                 Gaps.vGap10,
                 //beverages
-                CustomFacilityItem(
+                CustomMoreItem(
                   iconData: Icons.emoji_food_beverage_sharp,
                   title: context.locale.translate('beverages')!,
                   trailingIcon: Icons.menu_book_rounded,
@@ -225,7 +225,7 @@ class MoreScreenMobile extends StatelessWidget {
                 ),
                 Gaps.vGap10,
                 //super market
-                CustomFacilityItem(
+                CustomMoreItem(
                   iconData: Icons.shopping_cart_rounded,
                   title: context.locale.translate('super_market')!,
                   subtitle: context.locale.translate('sup_market_subtitle')!,
@@ -237,7 +237,7 @@ class MoreScreenMobile extends StatelessWidget {
                 ),
                 Gaps.vGap10,
                 //telephone directory
-                CustomFacilityItem(
+                CustomMoreItem(
                   iconData: Icons.call,
                   title: context.locale.translate('tele_dir')!,
                   trailingIcon: Icons.contact_phone_rounded,
@@ -256,7 +256,7 @@ class MoreScreenMobile extends StatelessWidget {
                 ),
                 Gaps.vGap10,
                 //offers
-                CustomFacilityItem(
+                CustomMoreItem(
                   iconData: Icons.discount_rounded,
                   title: context.locale.translate('offers')!,
                   trailingIcon: Icons.money_off_rounded,
@@ -275,7 +275,7 @@ class MoreScreenMobile extends StatelessWidget {
                 ),
                 Gaps.vGap10,
                 //down payment
-                CustomFacilityItem(
+                CustomMoreItem(
                   iconData: Icons.payment_rounded,
                   title: context.locale.translate('down_payment')!,
                   trailingIcon: Icons.attach_money_rounded,
@@ -294,7 +294,7 @@ class MoreScreenMobile extends StatelessWidget {
                 ),
                 Gaps.vGap10,
                 //contact_us
-                CustomFacilityItem(
+                CustomMoreItem(
                   iconData: Icons.connect_without_contact_rounded,
                   title: context.locale.translate('contact_us')!,
                   trailingIcon: Icons.contact_page_rounded,
@@ -313,7 +313,7 @@ class MoreScreenMobile extends StatelessWidget {
                 ),
                 Gaps.vGap10,
                 //terms and conditions
-                CustomFacilityItem(
+                CustomMoreItem(
                   iconData: Icons.integration_instructions_rounded,
                   title: context.locale.translate('terms_conditions')!,
                   trailingIcon: Icons.policy_rounded,
@@ -332,7 +332,7 @@ class MoreScreenMobile extends StatelessWidget {
                 ),
                 // Location
                 Gaps.vGap10,
-                CustomFacilityItem(
+                CustomMoreItem(
                   iconData: Icons.location_on_rounded,
                   title: context.locale.translate('location')!,
                   trailingIcon: Icons.map_rounded,
@@ -351,7 +351,7 @@ class MoreScreenMobile extends StatelessWidget {
                 ),
                 // Reviews
                 Gaps.vGap10,
-                CustomFacilityItem(
+                CustomMoreItem(
                   iconData: Icons.reviews_rounded,
                   title: context.locale.translate('reviews')!,
                   trailingIcon: Icons.comment_rounded,

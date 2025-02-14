@@ -1,11 +1,13 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:elite_beach/core/utils/assets.dart';
+import 'package:elite_beach/core/utils/gaps.dart';
 import 'package:elite_beach/core/utils/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
+import '../../widgets/custom_facility_widget.dart';
 
 class FacilitiesMobileScreen extends StatelessWidget {
   const FacilitiesMobileScreen({super.key});
@@ -85,8 +87,9 @@ class FacilitiesMobileScreen extends StatelessWidget {
             height: context.screenHeight * .03,
           ),
           // Facilities body
-          //   FacilityScreenBody(),
-          const Spacer(),
+          //   FacilityScreenBody
+          const CustomFacilityWidget(),
+          Gaps.vGap10,
           const BottomNavBar(),
         ],
       ),

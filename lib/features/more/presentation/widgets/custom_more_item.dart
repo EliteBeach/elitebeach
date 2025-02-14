@@ -2,8 +2,8 @@ import 'package:elite_beach/core/utils/helper.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class CustomFacilityItem extends StatelessWidget {
-  CustomFacilityItem(
+class CustomMoreItem extends StatelessWidget {
+  CustomMoreItem(
       {super.key,
       this.subtitle,
       required this.iconData,
