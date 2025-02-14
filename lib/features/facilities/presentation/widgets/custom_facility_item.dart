@@ -8,12 +8,12 @@ class CustomFacilityItem extends StatelessWidget {
       this.subtitle,
       required this.iconData,
       required this.title,
-      required this.trailing,
+      required this.trailingIcon,
       required this.tapHandler,
       required this.iconColor});
   final IconData iconData;
   final String title;
-  final String trailing;
+  final IconData trailingIcon;
   final Function tapHandler;
   final Color iconColor;
   String? subtitle;
@@ -39,12 +39,7 @@ class CustomFacilityItem extends StatelessWidget {
               ),
             )
           : null,
-      trailing: Text(
-        trailing,
-        style: const TextStyle(
-          fontWeight: FontWeight.bold,
-        ),
-      ),
+      trailing: Icon(trailingIcon),
       leading: Icon(
         iconData,
         color: Colors.green,
