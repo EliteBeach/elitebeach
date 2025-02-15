@@ -8,17 +8,9 @@ class HousingUnitDataSource {
     HousingUnitModel(
       id: 0,
       title: 'deluxe_chalet',
-      gridImagePath: AssetsData.testHousing1,
+      gridImagePath: AssetsData.deluxeChalet,
       capacity: 'deluxe_chalet_capacity_txt',
       contents: '',
-      unitImages: [
-        AssetsData.testHousing1,
-        AssetsData.pool,
-        AssetsData.testHousing1,
-        AssetsData.pool,
-        AssetsData.testHousing1,
-        AssetsData.pool,
-      ],
       description: [
         {
           'title': 'deluxe_bedding',
@@ -57,10 +49,9 @@ class HousingUnitDataSource {
     HousingUnitModel(
       id: 1,
       title: 'standard_chalet',
-      gridImagePath: AssetsData.testHousing1,
+      gridImagePath: AssetsData.standardChalet,
       capacity: 'chalet_capacity_txt',
       contents: '',
-      unitImages: [],
       description: [
         {
           'title': 'standard_chalet_bedding',
@@ -99,10 +90,9 @@ class HousingUnitDataSource {
     HousingUnitModel(
       id: 2,
       title: 'studio',
-      gridImagePath: AssetsData.testHousing1,
+      gridImagePath: AssetsData.studio,
       capacity: 'studio_capacity_txt',
       contents: '',
-      unitImages: [],
       description: [
         {
           'title': 'studio_bedding',
@@ -140,7 +130,6 @@ class HousingUnitDataSource {
       gridImagePath: AssetsData.testHousing1,
       capacity: 'triple_room_capacity_txt',
       contents: '',
-      unitImages: [],
       description: [
         {
           'title': 'triple_room_bedding',
@@ -174,7 +163,6 @@ class HousingUnitDataSource {
       gridImagePath: AssetsData.testHousing1,
       capacity: 'double_room_capacity_txt',
       contents: '',
-      unitImages: [],
       description: [
         {
           'title': 'sea_double_room_bedding',
@@ -205,10 +193,9 @@ class HousingUnitDataSource {
     HousingUnitModel(
       id: 5,
       title: 'side_view_double_room',
-      gridImagePath: AssetsData.testHousing1,
+      gridImagePath: AssetsData.sideViewRoom,
       capacity: 'double_room_capacity_txt',
       contents: '',
-      unitImages: [],
       description: [
         {
           'title': 'side_double_room_bedding',
@@ -239,10 +226,9 @@ class HousingUnitDataSource {
     HousingUnitModel(
       id: 6,
       title: 'back_view_double_room',
-      gridImagePath: AssetsData.testHousing1,
+      gridImagePath: AssetsData.backView,
       capacity: 'double_room_capacity_txt',
       contents: '',
-      unitImages: [],
       description: [
         {
           'title': 'back_double_room_bedding',

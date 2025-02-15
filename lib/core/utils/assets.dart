@@ -9,6 +9,11 @@ class AssetsData {
   static const aboutScreenImg = '${pathImage}about_img.webp';
   static const testHousing1 = '${pathImage}housing1.jpg';
   static const teleDir = '${pathImage}tele_dir.png';
+  static const deluxeChalet = '${pathImage}deluxe_chalet.jpg';
+  static const standardChalet = '${pathImage}standard_chalet.webp';
+  static const studio = '${pathImage}studio.webp';
+  static const sideViewRoom = '${pathImage}side_view.jpg';
+  static const backView = '${pathImage}back_view.jpg';
   static const instructions = '${pathImage}instructions.jpg';
 
 //pool
