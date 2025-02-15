@@ -16,11 +16,24 @@ class HousingDetailsScreenMobile extends StatelessWidget {
     required this.housingUnitModel,
   });
   final HousingUnitModel housingUnitModel;
+
   @override
   Widget build(BuildContext context) {
-    //fetch prices
-    SupabaseStreamFilterBuilder pricesTable =
-        Supabase.instance.client.from('prices').stream(primaryKey: ['id']);
+    // Fetch housing images
+    final Stream<List<Map<String, dynamic>>> imagesStream = Supabase
+        .instance.client
+        .from('housing_images')
+        .stream(primaryKey: ['id'])
+        .order('id', ascending: true)
+        .map((event) => event);
+
+    // Fetch prices
+    final Stream<List<Map<String, dynamic>>> pricesStream = Supabase
+        .instance.client
+        .from('prices')
+        .stream(primaryKey: ['id'])
+        .order('id', ascending: true)
+        .map((event) => event);
 
     return Scaffold(
       backgroundColor: const Color(0xffB0BDC0),
@@ -57,7 +70,6 @@ class HousingDetailsScreenMobile extends StatelessWidget {
                               : null,
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          //  fontFamily: 'EduAUVICWANTPre',
                         ),
                       ),
                     ],
@@ -77,7 +89,6 @@ class HousingDetailsScreenMobile extends StatelessWidget {
             color: Colors.black,
             fontWeight: FontWeight.bold,
             letterSpacing: 1,
-            //  fontFamily: 'EduAUVICWANTPre',
           ),
         ),
       ),
@@ -87,64 +98,78 @@ class HousingDetailsScreenMobile extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: context.screenHeight * .4,
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: housingUnitModel.unitImages.length,
-                    padding: EdgeInsetsDirectional.only(
-                        start: context.locale.isEnLocale ? 0 : 10,
-                        end: !context.locale.isEnLocale ? 0 : 10),
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                        ),
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return Stack(
-                                    children: [
-                                      PhotoViewGallery.builder(
-                                        // enableRotation: true,
-                                        itemCount:
-                                            housingUnitModel.unitImages.length,
-                                        builder: (context, index) {
-                                          return PhotoViewGalleryPageOptions(
-                                              imageProvider: AssetImage(
-                                                housingUnitModel
-                                                    .unitImages[index],
-                                              ),
+              StreamBuilder<List<Map<String, dynamic>>>(
+                stream: imagesStream,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  if (snapshot.hasError ||
+                      snapshot.data == null ||
+                      snapshot.data!.isEmpty) {
+                    return const Center(child: Text('لا توجد صور متاحة'));
+                  }
+
+                  return SizedBox(
+                    height: context.screenHeight * .4,
+                    child: ListView.builder(
+                      itemCount: snapshot.data!.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        final imageUrl =
+                            snapshot.data![index][housingUnitModel.title];
+                        if (imageUrl == null || imageUrl.isEmpty) {
+                          return const SizedBox();
+                        }
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return Stack(
+                                      children: [
+                                        PhotoViewGallery.builder(
+                                          itemCount: snapshot.data!.length,
+                                          builder: (context, i) {
+                                            return PhotoViewGalleryPageOptions(
+                                              imageProvider: NetworkImage(
+                                                  snapshot.data![i]
+                                                      [housingUnitModel.title]),
                                               gestureDetectorBehavior:
-                                                  HitTestBehavior.opaque);
-                                        },
-                                      ),
-                                      IconButton(
-                                          onPressed: () {
-                                            Navigator.pop(context);
+                                                  HitTestBehavior.opaque,
+                                            );
                                           },
-                                          icon: const Icon(Icons.arrow_back)),
-                                    ],
-                                  );
-                                },
-                              ),
-                            );
-                          },
-                          child: Image.asset(
-                            housingUnitModel.unitImages[index],
-                            fit: BoxFit.cover,
+                                        ),
+                                        IconButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context),
+                                          icon: const Icon(Icons.arrow_back),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ),
+                              );
+                            },
+                            child: Image.network(
+                              imageUrl,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  const Center(child: Text('خطأ في التحميل')),
+                            ),
                           ),
-                        ),
-                      );
-                    }),
+                        );
+                      },
+                    ),
+                  );
+                },
               ),
               Gaps.vGap15,
-              StreamBuilder(
-                stream: pricesTable,
+              StreamBuilder<List<Map<String, dynamic>>>(
+                stream: pricesStream,
                 builder: (context, snapshot) {
                   return snapshot.data == null
                       ? const Center(child: CircularProgressIndicator())
@@ -162,14 +187,4 @@ class HousingDetailsScreenMobile extends StatelessWidget {
       ),
     );
   }
-
-//  Future< List<String>> fetchPrices() async {
-//     final supabase = Supabase.instance.client;
-
-//     final response = supabase
-//         .from('prices')
-//         .stream(primaryKey: ['back_view_room']); // Fetch all columns
-
-//     return response;
-//   }
 }

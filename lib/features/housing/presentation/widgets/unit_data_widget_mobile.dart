@@ -47,21 +47,21 @@ class UnitDataWidgetMobile extends StatelessWidget {
           Expanded(
             flex: 4,
             child: CustomPriceItem(
-              price: price2,
+              price: price0,
               priceType: context.locale.translate('civilian')!,
             ),
           ),
           Expanded(
             flex: 4,
             child: CustomPriceItem(
-              price: price0,
+              price: price1,
               priceType: context.locale.translate('military')!,
             ),
           ),
           Expanded(
             flex: 5,
             child: CustomPriceItem(
-              price: price1,
+              price: price2,
               priceType: context.locale.translate('e_w_h')!,
             ),
           ),
