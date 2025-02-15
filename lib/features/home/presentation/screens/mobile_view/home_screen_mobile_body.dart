@@ -1,13 +1,11 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:elite_beach/core/utils/gaps.dart';
 import 'package:elite_beach/core/utils/helper.dart';
-import 'package:elite_beach/features/home/presentation/manager/cubit/bottom_nav_cubit_cubit.dart';
-import 'package:elite_beach/features/home/presentation/widgets/custom_reservation_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/assets.dart';
-import '../../../../../core/utils/functions/setup_service_locator.dart';
+import '../../../../../core/utils/constants.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
 import 'bottom_nav_bar.dart';
 
@@ -49,18 +47,19 @@ class HomeScreenMobileBody extends StatelessWidget {
                 Gaps.vGap30,
                 ElevatedButton(
                   onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return BlocProvider(
-                          create: (context) => getIt<BottomNavCubit>(),
-                          child: const Dialog(
-                            backgroundColor: Color(0xffB0BDC0),
-                            child: CustomReservationDialog(),
-                          ),
-                        );
-                      },
-                    );
+                    Navigator.pushNamed(context, kBookingScreen);
+                    // showDialog(
+                    //   context: context,
+                    //   builder: (context) {
+                    //     return BlocProvider(
+                    //       create: (context) => getIt<BottomNavCubit>(),
+                    //       child: const Dialog(
+                    //         backgroundColor: Color(0xffB0BDC0),
+                    //         child: CustomReservationDialog(),
+                    //       ),
+                    //     );
+                    //   },
+                    // );
                   },
                   child: const Text(
                     'BOOK NOW !',

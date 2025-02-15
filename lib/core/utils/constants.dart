@@ -13,7 +13,7 @@ const String kGalleryDetailsMobileScreenRoute =
     '/galleryDetailsMobileScreenRoute';
 const String kHousingDetailsMobileScreenRoute =
     '/housingDetailsMobileScreenRoute';
-
+const String kBookingScreen = '/bookingScreen';
 //BottomNavItemsIndex
 // const int kHomeScreen = 0;
 // const int kMessagesScreen = 1;

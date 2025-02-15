@@ -1,4 +1,5 @@
 import 'package:elite_beach/features/gallery/presentation/screens/mobile/gallery_details_mobile_screen.dart';
+import 'package:elite_beach/features/home/presentation/screens/mobile_view/book_now_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../features/home/presentation/screens/home_screen.dart';
@@ -27,7 +28,9 @@ class AppRoutes {
             builder: (_) => HousingDetailsScreenMobile(
                   housingUnitModel: args,
                 ));
-
+      case kBookingScreen:
+        return MaterialPageRoute(
+            builder: (_) => const CustomReservationScreen());
       default:
         return null;
     }
