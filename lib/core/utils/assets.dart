@@ -18,6 +18,7 @@ class AssetsData {
   static const whatsApp = '${pathImage}icons/whatsapp.png';
   static const facebook = '${pathImage}icons/facebook.png';
   static const instagram = '${pathImage}icons/instagram.png';
+  static const tiktok = '${pathImage}icons/tiktok.png';
 
   //-------------Icons----------//
   static const addIcon = '${pathIcon}add_icon.png';

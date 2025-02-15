@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:elite_beach/core/utils/assets.dart';
+import 'package:elite_beach/core/utils/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -23,7 +24,7 @@ class GalleryDetailsMobileScreen extends StatelessWidget {
             .toList());
 
     return Scaffold(
-      appBar: AppBar(title: Text(galleryTitle)),
+      appBar: AppBar(title: Text(context.locale.translate(galleryTitle)!)),
       body: StreamBuilder<List<Map<String, dynamic>>>(
         stream: imagesTable,
         builder: (context, snapshot) {

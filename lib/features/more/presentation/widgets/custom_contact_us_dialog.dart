@@ -70,6 +70,35 @@ class CustomContactUsDialog extends StatelessWidget {
             ),
           ),
           Gaps.vGap30,
+          //TIKTOK
+          InkWell(
+            onTap: () {
+              launchUrlString(
+                  'https://www.instagram.com/elite_beach_resort_hotel');
+            },
+            child: Row(
+              children: [
+                Image.asset(
+                  AssetsData.tiktok,
+                  fit: BoxFit.scaleDown,
+                  height: 20,
+                  width: 20,
+                  color: Colors.black,
+                ),
+                Gaps.hGap5,
+                const Flexible(
+                  child: Text(
+                    'ELITE Beach Resort & Hotel',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'EduAUVICWANTPre',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Gaps.vGap30,
           //whatsApp
           InkWell(
             onTap: () {

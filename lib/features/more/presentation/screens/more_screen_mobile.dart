@@ -101,69 +101,79 @@ class MoreScreenMobile extends StatelessWidget {
                   title: context.locale.translate('restaurant')!,
                   trailingIcon: Icons.menu_book_rounded,
                   tapHandler: () async {
-                    // await Supabase.instance.client.from('test').insert({
-                    //   "images": "https://i.imgur.com/eBYOqcS.png",
-                    //   "type": "gfgf"
-                    // });
-                    SupabaseStreamFilterBuilder barMenu = Supabase
-                        .instance.client
+                    final barMenuStream = Supabase.instance.client
                         .from('gallery_images')
-                        .stream(primaryKey: ['id']);
+                        .stream(primaryKey: ['id']).map((data) => data
+                            .where((item) => item['rest_menu'] != null)
+                            .toList()
+                          ..sort((a, b) =>
+                              a['id'].compareTo(b['id']))); // ترتيب البيانات
+
                     showDialog(
-                        context: context,
-                        builder: (ctx) {
-                          return Dialog(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: StreamBuilder(
-                                stream: barMenu,
-                                builder: (context, snapshot) {
-                                  return snapshot.connectionState ==
-                                          ConnectionState.waiting
-                                      ? const Padding(
-                                          padding: EdgeInsets.all(8.0),
-                                          child: Text('Loading . . '),
-                                        )
-                                      : (snapshot.data![0]['rest_menu'] == null)
-                                          ? const Padding(
-                                              padding: EdgeInsets.all(8.0),
-                                              child: Text('Error'),
-                                            )
-                                          : ListView.builder(
-                                              itemCount: snapshot.data!.length,
-                                              itemBuilder: (context, index) {
-                                                return snapshot.data![index]
-                                                            ['rest_menu'] ==
-                                                        null
-                                                    ? const SizedBox()
-                                                    : Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(
-                                                                bottom: 8),
-                                                        child:
-                                                            InteractiveViewer(
-                                                          child: Image.network(
-                                                            snapshot.data![
-                                                                    index]
-                                                                ['rest_menu'],
-                                                            errorBuilder:
-                                                                (context, error,
-                                                                    stackTrace) {
-                                                              return const Text(
-                                                                  '');
-                                                            },
-                                                          ),
-                                                        ),
-                                                      );
-                                              },
-                                            );
+                      context: context,
+                      builder: (ctx) {
+                        return Dialog(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          child: StreamBuilder<List<Map<String, dynamic>>>(
+                            stream: barMenuStream,
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return const Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Center(
+                                      child: CircularProgressIndicator()),
+                                );
+                              }
+
+                              final data = snapshot.data ?? [];
+
+                              if (data.isEmpty) {
+                                return const Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child:
+                                      Center(child: Text('No menu available')),
+                                );
+                              }
+
+                              return ListView.builder(
+                                padding: const EdgeInsets.all(8.0),
+                                itemCount: data.length,
+                                itemBuilder: (context, index) {
+                                  final imageUrl = data[index]['rest_menu'];
+
+                                  if (imageUrl == null ||
+                                      imageUrl.isEmpty ||
+                                      imageUrl == 'null') {
+                                    return const SizedBox(); // لو فاضي مش هيظهر حاجة
+                                  }
+
+                                  return Padding(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: InteractiveViewer(
+                                      child: Image.network(
+                                        imageUrl,
+                                        errorBuilder:
+                                            (context, error, stackTrace) {
+                                          return const Center(
+                                              child:
+                                                  Text('Error loading image'));
+                                        },
+                                      ),
+                                    ),
+                                  );
                                 },
-                              ));
-                        });
+                              );
+                            },
+                          ),
+                        );
+                      },
+                    );
                   },
                   iconColor: Colors.green,
                 ),
+
                 Gaps.vGap10,
                 //beverages
                 CustomMoreItem(
@@ -171,68 +181,80 @@ class MoreScreenMobile extends StatelessWidget {
                   title: context.locale.translate('beverages')!,
                   trailingIcon: Icons.menu_book_rounded,
                   tapHandler: () async {
-                    SupabaseStreamFilterBuilder barMenu = Supabase
-                        .instance.client
+                    final barMenuStream = Supabase.instance.client
                         .from('gallery_images')
-                        .stream(primaryKey: ['id']);
+                        .stream(primaryKey: ['id']).map((data) => data
+                            .where((item) => item['bar_menu'] != null)
+                            .toList()
+                          ..sort((a, b) =>
+                              a['id'].compareTo(b['id']))); // ترتيب البيانات
+
                     showDialog(
-                        context: context,
-                        builder: (ctx) {
-                          return Dialog(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: StreamBuilder(
-                                stream: barMenu,
-                                builder: (context, snapshot) {
-                                  return snapshot.connectionState ==
-                                          ConnectionState.waiting
-                                      ? const Padding(
-                                          padding: EdgeInsets.all(8.0),
-                                          child: Text('Loading . . '),
-                                        )
-                                      : (snapshot.connectionState ==
-                                                  ConnectionState.active &&
-                                              snapshot.data![0]['bar_menu'] ==
-                                                  null)
-                                          ? const Padding(
-                                              padding: EdgeInsets.all(8.0),
-                                              child: Text('Error'),
-                                            )
-                                          : ListView.builder(
-                                              itemCount: snapshot.data!.length,
-                                              itemBuilder: (context, index) {
-                                                return snapshot.data![index]
-                                                            ['bar_menu'] ==
-                                                        null
-                                                    ? const SizedBox()
-                                                    : Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(
-                                                                bottom: 8),
-                                                        child:
-                                                            InteractiveViewer(
-                                                          child: Image.network(
-                                                            snapshot.data![
-                                                                    index]
-                                                                ['bar_menu'],
-                                                            errorBuilder:
-                                                                (context, error,
-                                                                    stackTrace) {
-                                                              return const Text(
-                                                                  '');
-                                                            },
-                                                          ),
-                                                        ),
-                                                      );
-                                              },
-                                            );
+                      context: context,
+                      builder: (ctx) {
+                        return Dialog(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          child: StreamBuilder<List<Map<String, dynamic>>>(
+                            stream: barMenuStream,
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return const Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Center(
+                                      child: CircularProgressIndicator()),
+                                );
+                              }
+
+                              final data = snapshot.data ?? [];
+
+                              if (data.isEmpty) {
+                                return const Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Center(
+                                      child:
+                                          Text('No beverages menu available')),
+                                );
+                              }
+
+                              return ListView.builder(
+                                padding: const EdgeInsets.all(8.0),
+                                itemCount: data.length,
+                                itemBuilder: (context, index) {
+                                  final imageUrl = data[index]['bar_menu'];
+
+                                  if (imageUrl == null ||
+                                      imageUrl.isEmpty ||
+                                      imageUrl == 'null') {
+                                    return const SizedBox(); // لو فاضي مش هيظهر حاجة
+                                  }
+
+                                  return Padding(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: InteractiveViewer(
+                                      child: Image.network(
+                                        imageUrl,
+                                        errorBuilder:
+                                            (context, error, stackTrace) {
+                                          return const Center(
+                                              child:
+                                                  Text('Error loading image'));
+                                        },
+                                      ),
+                                    ),
+                                  );
                                 },
-                              ));
-                        });
+                              );
+                            },
+                          ),
+                        );
+                      },
+                    );
                   },
                   iconColor: Colors.green,
                 ),
+
                 Gaps.vGap10,
                 //super market
                 CustomMoreItem(
@@ -271,77 +293,83 @@ class MoreScreenMobile extends StatelessWidget {
                   title: context.locale.translate('offers')!,
                   trailingIcon: Icons.money_off_rounded,
                   tapHandler: () {
-                    SupabaseStreamFilterBuilder offers = Supabase
-                        .instance.client
+                    final offersStream = Supabase.instance.client
                         .from('gallery_images')
-                        .stream(primaryKey: ['id']);
+                        .stream(primaryKey: ['id']).map((data) => data
+                            .where((item) => item['offers'] != null)
+                            .toList()
+                          ..sort((a, b) =>
+                              a['id'].compareTo(b['id']))); // ترتيب البيانات
+
                     showDialog(
-                        context: context,
-                        builder: (ctx) {
-                          return Dialog(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: StreamBuilder(
-                                stream: offers,
-                                builder: (context, snapshot) {
-                                  return snapshot.connectionState ==
-                                          ConnectionState.waiting
-                                      ? const Padding(
-                                          padding: EdgeInsets.all(8.0),
-                                          child: Text('Loading . . '),
-                                        )
-                                      : (snapshot.data![0]['offers'] == null)
-                                          ? const Padding(
-                                              padding: EdgeInsets.all(8.0),
-                                              child: Text(
-                                                  'There is no offers for now '),
-                                            )
-                                          : ListView.builder(
-                                              itemCount: snapshot.data!.length,
-                                              itemBuilder: (context, index) {
-                                                return snapshot.data![index]
-                                                            ['offers'] ==
-                                                        null
-                                                    ? const SizedBox()
-                                                    : Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(
-                                                                bottom: 8),
-                                                        child:
-                                                            InteractiveViewer(
-                                                          child: Image.network(
-                                                            snapshot.data![
-                                                                    index]
-                                                                ['offers'],
-                                                            errorBuilder:
-                                                                (context, error,
-                                                                    stackTrace) {
-                                                              return Padding(
-                                                                padding:
-                                                                    const EdgeInsets
-                                                                        .all(
-                                                                        8.0),
-                                                                child: Text(snapshot
-                                                                            .data![
-                                                                        index]
-                                                                    ['offers']),
-                                                              );
-                                                            },
-                                                          ),
-                                                        ),
-                                                      );
-                                              },
-                                            );
+                      context: context,
+                      builder: (ctx) {
+                        return Dialog(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          child: StreamBuilder<List<Map<String, dynamic>>>(
+                            stream: offersStream,
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return const Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Center(
+                                      child: CircularProgressIndicator()),
+                                );
+                              }
+
+                              final data = snapshot.data ?? [];
+
+                              if (data.isEmpty) {
+                                return const Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Center(
+                                      child:
+                                          Text('There are no offers for now')),
+                                );
+                              }
+
+                              return ListView.builder(
+                                padding: const EdgeInsets.all(8.0),
+                                itemCount: data.length,
+                                itemBuilder: (context, index) {
+                                  final imageUrl = data[index]['offers'];
+
+                                  if (imageUrl == null ||
+                                      imageUrl.isEmpty ||
+                                      imageUrl == 'null') {
+                                    return const SizedBox(); // لو فاضي مش هيظهر حاجة
+                                  }
+
+                                  return Padding(
+                                    padding: const EdgeInsets.only(bottom: 8),
+                                    child: InteractiveViewer(
+                                      child: Image.network(
+                                        imageUrl,
+                                        errorBuilder:
+                                            (context, error, stackTrace) {
+                                          return Center(child: Text(imageUrl));
+                                        },
+                                      ),
+                                    ),
+                                  );
                                 },
-                              ));
-                        });
+                              );
+                            },
+                          ),
+                        );
+                      },
+                    );
                   },
                   iconColor: Colors.green,
                 ),
+
                 Gaps.vGap10,
                 //down payment
                 CustomMoreItem(
+                  subtitle:
+                      '${context.locale.translate('visa')!} / ${context.locale.translate('master_card')!} / ${context.locale.translate('cash')!}',
                   iconData: Icons.payment_rounded,
                   title: context.locale.translate('down_payment')!,
                   trailingIcon: Icons.attach_money_rounded,
