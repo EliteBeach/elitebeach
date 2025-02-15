@@ -1,4 +1,5 @@
-import 'package:elite_beach/core/utils/helper.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:elite_beach/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -12,15 +13,17 @@ class GalleryDetailsMobileScreen extends StatelessWidget {
     final Stream<List<Map<String, dynamic>>> imagesTable = Supabase
         .instance.client
         .from('gallery_images')
-        .stream(primaryKey: ['id']).map((event) => event
+        .stream(primaryKey: ['id'])
+        .order('id', ascending: true) // ✅ ترتيب البيانات حسب ID
+        .map((event) => event
             .where((image) =>
                 image[galleryTitle] != null &&
                 image[galleryTitle] != 'null' &&
                 image[galleryTitle].toString().isNotEmpty)
-            .toList()); // ✅ تصفية الصور الفارغة
+            .toList());
 
     return Scaffold(
-      appBar: AppBar(title: Text(context.locale.translate(galleryTitle)!)),
+      appBar: AppBar(title: Text(galleryTitle)),
       body: StreamBuilder<List<Map<String, dynamic>>>(
         stream: imagesTable,
         builder: (context, snapshot) {
@@ -45,7 +48,12 @@ class GalleryDetailsMobileScreen extends StatelessWidget {
               mainAxisExtent: 100,
             ),
             itemBuilder: (context, index) {
-              final imageUrl = snapshot.data![index][galleryTitle];
+              String imageUrl = snapshot.data![index][galleryTitle];
+
+              // تحويل http إلى https لو لزم الأمر
+              if (imageUrl.startsWith('http://')) {
+                imageUrl = imageUrl.replaceFirst('http://', 'https://');
+              }
 
               return InkWell(
                 onTap: () {
@@ -60,9 +68,14 @@ class GalleryDetailsMobileScreen extends StatelessWidget {
                               pageController:
                                   PageController(initialPage: index),
                               builder: (context, i) {
+                                String fullImageUrl =
+                                    snapshot.data![i][galleryTitle];
+                                if (fullImageUrl.startsWith('http://')) {
+                                  fullImageUrl = fullImageUrl.replaceFirst(
+                                      'http://', 'https://');
+                                }
                                 return PhotoViewGalleryPageOptions(
-                                  imageProvider: NetworkImage(
-                                      snapshot.data![i][galleryTitle]),
+                                  imageProvider: NetworkImage(fullImageUrl),
                                   errorBuilder: (context, error, stackTrace) =>
                                       const Center(
                                           child: Text('خطأ في تحميل الصورة')),
@@ -86,11 +99,15 @@ class GalleryDetailsMobileScreen extends StatelessWidget {
                     ),
                   );
                 },
-                child: Image.network(
-                  imageUrl,
+                child: CachedNetworkImage(
+                  imageUrl: imageUrl,
                   fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) =>
-                      const Center(child: Text('خطأ في التحميل')),
+                  placeholder: (context, url) => Center(
+                      child: Image.asset(
+                    AssetsData.eliteLogo,
+                  )), // تحميل مؤقت
+                  errorWidget: (context, url, error) => const Center(
+                      child: Text('خطأ في التحميل')), // في حالة فشل التحميل
                 ),
               );
             },
