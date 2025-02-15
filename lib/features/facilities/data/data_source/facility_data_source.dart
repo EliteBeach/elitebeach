@@ -18,7 +18,8 @@ class FacilityDataSource {
     FacilityModel(
         facilityIcon: Icons.sensor_door_rounded,
         facilityName: 'private_entrance'),
-    FacilityModel(facilityIcon: Icons.pool_rounded, facilityName: 'aqua_park'),
+    FacilityModel(
+        facilityIcon: Icons.surfing_rounded, facilityName: 'aqua_park'),
     FacilityModel(facilityIcon: Icons.pool, facilityName: 'swimming_pool'),
     FacilityModel(
         facilityIcon: Icons.bathroom_rounded, facilityName: 'day_use_bathroom'),
