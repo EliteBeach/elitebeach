@@ -113,9 +113,10 @@ class _CustomReservationScreenState extends State<CustomReservationScreen> {
                 ),
                 Gaps.vGap16,
                 TextFormField(
-                  validator: (value) => value == null || value.isEmpty
-                      ? 'Please enter your phone'
-                      : null,
+                  validator: (value) =>
+                      value == null || value.isEmpty || value.length < 11
+                          ? 'Please enter your phone'
+                          : null,
                   controller: phoneController,
                   decoration: const InputDecoration(
                       labelText: 'Phone', border: OutlineInputBorder()),
@@ -125,6 +126,7 @@ class _CustomReservationScreenState extends State<CustomReservationScreen> {
                   children: [
                     Expanded(
                       child: TextFormField(
+                        keyboardType: TextInputType.number,
                         validator: (value) => value == null || value.isEmpty
                             ? 'Enter number of adults'
                             : null,
@@ -136,6 +138,7 @@ class _CustomReservationScreenState extends State<CustomReservationScreen> {
                     Gaps.hGap20,
                     Expanded(
                       child: TextFormField(
+                        keyboardType: TextInputType.number,
                         validator: (value) => value == null || value.isEmpty
                             ? 'Enter number of kids'
                             : null,
