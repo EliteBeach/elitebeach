@@ -138,7 +138,7 @@ class _HousingDetailsScreenMobileState
                                 context, snapshot.data!, index),
                             child: CachedNetworkImage(
                               imageUrl: imageUrl,
-                              // fit: BoxFit.cover,
+                              fit: BoxFit.scaleDown,
                               placeholder: (context, url) => Center(
                                 child: Image.asset(AssetsData.eliteLogo),
                               ),
@@ -203,11 +203,12 @@ class _HousingDetailsScreenMobileState
                       images[index][widget.housingUnitModel.title];
 
                   return PhotoViewGalleryPageOptions(
-                    imageProvider:
-                        fullImageUrl != null && fullImageUrl.isNotEmpty
-                            ? NetworkImage(fullImageUrl)
-                            : const AssetImage(AssetsData.eliteLogo)
-                                as ImageProvider,
+                    imageProvider: fullImageUrl != null &&
+                            fullImageUrl.isNotEmpty &&
+                            fullImageUrl != 'null'
+                        ? NetworkImage(fullImageUrl)
+                        : const AssetImage(AssetsData.eliteLogo)
+                            as ImageProvider,
                     heroAttributes: PhotoViewHeroAttributes(
                         tag: fullImageUrl ?? 'default_tag'),
                     errorBuilder: (context, error, stackTrace) =>
