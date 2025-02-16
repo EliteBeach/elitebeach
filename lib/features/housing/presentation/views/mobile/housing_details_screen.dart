@@ -126,7 +126,9 @@ class _HousingDetailsScreenMobileState
                       itemBuilder: (context, index) {
                         final imageUrl = snapshot.data![index]
                             [widget.housingUnitModel.title];
-                        if (imageUrl == null || imageUrl.isEmpty) {
+                        if (imageUrl == null ||
+                            imageUrl.isEmpty ||
+                            imageUrl == 'null') {
                           return const SizedBox();
                         }
                         return Padding(
@@ -136,7 +138,7 @@ class _HousingDetailsScreenMobileState
                                 context, snapshot.data!, index),
                             child: CachedNetworkImage(
                               imageUrl: imageUrl,
-                              fit: BoxFit.cover,
+                              // fit: BoxFit.cover,
                               placeholder: (context, url) => Center(
                                 child: Image.asset(AssetsData.eliteLogo),
                               ),
