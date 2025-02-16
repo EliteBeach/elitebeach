@@ -3,7 +3,7 @@ class AssetsData {
   static const pathIcon = 'assets/icons/';
   //-------------Images----------//
   static const homeImage = '${pathImage}home_image.jpg';
-  static const eliteLogo = '${pathImage}elite_logo.jpg';
+  static const eliteLogo = '${pathImage}elite_logo.png';
   static const eliteLogoNoBg = '${pathImage}elite_logo_no_bg.png';
   static const aboutScreenBg = '${pathImage}about_screen_bg.jpg';
   static const aboutScreenImg = '${pathImage}about_img.webp';

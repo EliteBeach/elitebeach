@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../home/presentation/screens/mobile_view/bottom_nav_bar.dart';
 import '../../../../splash/presentation/manger/locale_cubit/locale_cubit.dart';
-import '../../../data/models/gallery_model.dart';
 import '../../widgets/custom_gallery_item.dart';
 
 class GalleryScreenMobile extends StatelessWidget {
@@ -14,7 +13,7 @@ class GalleryScreenMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GalleryModel galleryModel = GalleryModel();
+    //  GalleryModel galleryModel = GalleryModel();
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: context.screenWidth * .05,
@@ -89,7 +88,7 @@ class GalleryScreenMobile extends StatelessWidget {
           ),
           //Images list view
           SizedBox(
-            height: context.screenHeight * .7,
+            height: context.screenHeight * .6,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

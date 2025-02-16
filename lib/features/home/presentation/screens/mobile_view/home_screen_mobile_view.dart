@@ -24,18 +24,20 @@ class HomeScreenMobileView extends StatelessWidget {
             resizeToAvoidBottomInset: false,
             backgroundColor:
                 activeIndex != 0 ? const Color(0xffB0BDC0) : Colors.white,
-            body: BlocBuilder<BottomNavCubit, BottomNavCubitState>(
-              builder: (context, state) {
-                return activeIndex == 0
-                    ? const HomeScreenMobileBody()
-                    : activeIndex == 1
-                        ? const GalleryScreenMobile()
-                        : activeIndex == 2
-                            ? const HousingScreenMobile()
-                            : activeIndex == 3
-                                ? const FacilitiesMobileScreen()
-                                : const MoreScreenMobile();
-              },
+            body: SafeArea(
+              child: BlocBuilder<BottomNavCubit, BottomNavCubitState>(
+                builder: (context, state) {
+                  return activeIndex == 0
+                      ? const HomeScreenMobileBody()
+                      : activeIndex == 1
+                          ? const GalleryScreenMobile()
+                          : activeIndex == 2
+                              ? const HousingScreenMobile()
+                              : activeIndex == 3
+                                  ? const FacilitiesMobileScreen()
+                                  : const MoreScreenMobile();
+                },
+              ),
             ),
           );
         },
